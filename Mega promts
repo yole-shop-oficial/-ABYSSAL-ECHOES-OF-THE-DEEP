@@ -1,1 +1,4728 @@
-mega 
+⚔️ MEGA PROMPT DEFINITIVO
+
+RPG PWA — PROYECTO ORIGINAL DE MAZMORRAS
+
+MUNDO REAL + MODO LIBRE + GPS + CÁMARA + OFFLINE FIRST + WI-FI LOCAL
+
+---
+
+0. MISIÓN ABSOLUTA
+
+Crear desde cero un videojuego RPG narrativo de fantasía oscura para dispositivos móviles, distribuido principalmente como PWA.
+
+El juego debe combinar:
+
+NARRATIVA
+
++ 
+
+RPG
+
++ 
+
+MAZMORRAS
+
++ 
+
+COMBATE DINÁMICO
+
++ 
+
+PROGRESIÓN ABIERTA
+
++ 
+
+EXPLORACIÓN DEL MUNDO REAL
+
++ 
+
+GPS
+
++ 
+
+CÁMARA/AR OPCIONAL
+
++ 
+
+MODO LIBRE OFFLINE
+
++ 
+
+MULTIJUGADOR COOPERATIVO
+
++ 
+
+MULTIJUGADOR COMPETITIVO
+
++ 
+
+GENERACIÓN PROCEDURAL
+
++ 
+
+HISTORIA EXPANDIBLE
+
++ 
+
+OFFLINE FIRST
+
+El resultado NO debe parecer una página web.
+
+Debe sentirse como un videojuego RPG completo para móviles.
+
+---
+
+1. REGLA FUNDAMENTAL
+
+El proyecto debe diseñarse primero para:
+
+ANDROID
+
+IPHONE
+
+IPAD
+
+TELÉFONOS DE PANTALLA PEQUEÑA
+
+PWA INSTALABLE
+
+y posteriormente adaptarse a:
+
+TABLET
+
+PC
+
+NAVEGADORES DE ESCRITORIO
+
+La experiencia móvil es la prioridad absoluta.
+
+---
+
+2. IDENTIDAD ORIGINAL
+
+La inspiración de género puede tomar referencias generales de:
+
+- RPG de mazmorras;
+- fantasía oscura;
+- cazadores;
+- progresión de poder;
+- monstruos;
+- rangos;
+- habilidades;
+- jefes;
+- gremios;
+- aventuras;
+- mundos sobrenaturales.
+
+NO copiar ninguna obra concreta.
+
+NO copiar personajes.
+
+NO copiar nombres.
+
+NO copiar términos característicos.
+
+NO copiar escenas.
+
+NO copiar sistemas propietarios.
+
+NO copiar diseños.
+
+NO copiar lore.
+
+NO copiar la historia de ninguna franquicia.
+
+El juego debe tener identidad propia.
+
+---
+
+3. NOMBRE DEL JUEGO
+
+El nombre definitivo NO está decidido.
+
+Antes de comenzar el desarrollo:
+
+generar entre 10 y 20 nombres originales.
+
+Cada nombre debe transmitir:
+
+- misterio;
+- poder;
+- fantasía oscura;
+- aventura;
+- mazmorras;
+- evolución;
+- peligro;
+- descubrimiento;
+- mundo sobrenatural.
+
+No elegir definitivamente el nombre hasta recibir aprobación del creador.
+
+---
+
+4. CONCEPTO GENERAL
+
+La realidad cotidiana existe normalmente.
+
+Pero aparecen anomalías sobrenaturales denominadas:
+
+LAS BRECHAS
+
+Las Brechas conectan nuestro mundo con lugares desconocidos.
+
+Dentro existen:
+
+- criaturas;
+- mazmorras;
+- ruinas;
+- ciudades;
+- fortalezas;
+- dimensiones;
+- entidades;
+- recursos;
+- artefactos;
+- secretos.
+
+Pero las Brechas no son simples portales.
+
+Son parte de algo mucho mayor.
+
+---
+
+5. EL MUNDO REAL ES EL MAPA
+
+Una característica fundamental del juego:
+
+EL MUNDO REAL ES EL MAPA EXTERIOR.
+
+La ciudad real del jugador se convierte en el mundo exterior del RPG.
+
+El teléfono puede determinar la posición del jugador mediante geolocalización cuando el usuario concede permiso.
+
+Ejemplo:
+
+Una calle real:
+
+↓
+
+RUTA DE AVENTURERO
+
+Un parque:
+
+↓
+
+BOSQUE DE LAS SOMBRAS
+
+Una plaza:
+
+↓
+
+PUNTO DE REUNIÓN
+
+Un edificio abandonado:
+
+↓
+
+RUINA
+
+Una zona especial:
+
+↓
+
+BRECHA
+
+---
+
+6. NUNCA MODIFICAR EL MAPA REAL
+
+El juego debe colocar una capa fantástica encima.
+
+No alterar ni falsificar el mapa base.
+
+Separar:
+
+REAL WORLD MAP
+
+y
+
+GAME WORLD OVERLAY.
+
+El mapa real proporciona:
+
+- posición;
+- carreteras;
+- zonas;
+- orientación;
+- geografía general.
+
+Nuestra capa añade:
+
+- monstruos;
+- mazmorras;
+- recursos;
+- NPC;
+- eventos;
+- brechas;
+- misiones;
+- bosses.
+
+---
+
+7. MAPA OFFLINE
+
+Crear un sistema de:
+
+REGION PACK
+
+El usuario puede descargar regiones cuando tenga Wi-Fi.
+
+Ejemplo:
+
+DESCARGAR MI REGIÓN
+
+[Villa Clara]
+
+Tamaño:
+
+25 MB
+
+[DESCARGAR]
+
+Una región descargada debe poder utilizarse después sin conexión.
+
+El paquete puede contener:
+
+- datos cartográficos;
+- geometría;
+- calles;
+- nombres;
+- metadatos necesarios;
+- zonas de juego;
+- puntos de interés transformados en contenido del juego.
+
+Usar almacenamiento local apropiado.
+
+Nunca depender de una API remota para representar una región que el jugador ya ha descargado.
+
+---
+
+8. REGLA DE PRIVACIDAD DEL MAPA
+
+La ubicación del jugador es información sensible.
+
+No enviar coordenadas a ningún servidor en el modo local/offline.
+
+Por defecto:
+
+LOCAL ONLY.
+
+El usuario debe saber claramente:
+
+"Tu ubicación se utiliza para colocar tu personaje dentro del mundo."
+
+Permitir desactivar la geolocalización.
+
+---
+
+9. DOS MODOS PRINCIPALES
+
+El juego tendrá:
+
+MODO MUNDO REAL
+
+y
+
+MODO LIBRE
+
+Son dos maneras diferentes de jugar.
+
+---
+
+10. MODO MUNDO REAL
+
+El jugador activa:
+
+EXPLORACIÓN REAL.
+
+Camina físicamente por su ciudad.
+
+El personaje se mueve según su ubicación.
+
+El juego utiliza:
+
+GPS/geolocalización;
+
+brújula cuando esté disponible;
+
+orientación del dispositivo cuando esté disponible;
+
+mapa local;
+
+hora local;
+
+zona;
+
+progreso.
+
+---
+
+11. ENCUENTROS DINÁMICOS
+
+No obligar al jugador a buscar manualmente cada criatura.
+
+Crear:
+
+ENCOUNTER ENGINE
+
+El sistema calcula:
+
+posición;
+
+zona;
+
+bioma;
+
+hora;
+
+clima si está disponible;
+
+nivel;
+
+progreso;
+
+seed;
+
+eventos;
+
+actividad de la región.
+
+Y determina qué aparece.
+
+---
+
+12. EJEMPLOS DE ENCUENTROS
+
+PARQUE:
+
+Bestias.
+
+Espíritus.
+
+Plantas.
+
+Criaturas naturales.
+
+ZONA URBANA:
+
+Sombras.
+
+Criaturas artificiales.
+
+Entidades.
+
+Demonios.
+
+CERCANÍAS DEL AGUA:
+
+Criaturas acuáticas.
+
+RECURSOS raros.
+
+ZONAS HISTÓRICAS:
+
+Ruinas.
+
+Reliquias.
+
+Eventos históricos ficticios.
+
+ZONAS AISLADAS:
+
+Mayor probabilidad de enemigos raros.
+
+---
+
+13. PUNTOS DE APARICIÓN
+
+No colocar monstruos simplemente de manera aleatoria.
+
+Crear:
+
+Spawn Zones.
+
+Cada zona tendrá:
+
+bioma;
+
+nivel;
+
+rareza;
+
+pool de enemigos;
+
+horario;
+
+eventos;
+
+densidad.
+
+---
+
+14. HORARIO
+
+La hora puede modificar los encuentros.
+
+DÍA:
+
+enemigos comunes.
+
+ATARDECER:
+
+enemigos especiales.
+
+NOCHE:
+
+enemigos oscuros.
+
+MADRUGADA:
+
+eventos extremadamente raros.
+
+No depender de Internet para saber la hora.
+
+---
+
+15. MOVIMIENTO REAL
+
+El jugador puede:
+
+caminar;
+
+correr;
+
+desplazarse;
+
+detenerse.
+
+El juego debe filtrar pequeñas variaciones de GPS.
+
+No mover al personaje constantemente por pequeños errores de señal.
+
+Crear:
+
+GPS smoothing.
+
+GPS threshold.
+
+Movement validation.
+
+---
+
+16. ANTI-TELEPORT
+
+Evitar desplazamientos absurdos.
+
+Si el jugador aparece repentinamente a kilómetros de distancia:
+
+detectar anomalía.
+
+No destruir automáticamente el progreso.
+
+Mostrar:
+
+"Señal de ubicación inestable."
+
+---
+
+17. MODO LIBRE
+
+Este modo es una mecánica PRINCIPAL.
+
+Cuando el jugador no pueda salir:
+
+puede utilizar una habilidad especial.
+
+Todos los aventureros poseen esta capacidad.
+
+Nombre provisional:
+
+PROYECCIÓN
+
+o
+
+TRÁNSITO ASTRAL
+
+o
+
+EXCURSIÓN DEL ALMA
+
+El nombre definitivo se decidirá después.
+
+---
+
+18. HISTORIA DEL MODO LIBRE
+
+En el lore:
+
+los aventureros aprenden una habilidad que permite separar temporalmente su conciencia del cuerpo.
+
+El cuerpo permanece seguro.
+
+La conciencia entra en:
+
+EL DOMINIO DE LAS BRECHAS.
+
+Así el jugador puede aventurarse desde casa.
+
+Esta mecánica debe formar parte del universo y no sentirse como:
+
+"modo videojuego artificial".
+
+---
+
+19. MODO LIBRE OFFLINE
+
+El jugador puede:
+
+caminar;
+
+explorar;
+
+combatir;
+
+abrir mazmorras;
+
+conseguir loot;
+
+completar misiones;
+
+subir nivel;
+
+leer historia;
+
+guardar progreso.
+
+Todo sin conexión después de haber descargado los recursos necesarios.
+
+---
+
+20. MAPA DEL MODO LIBRE
+
+El mapa puede utilizar una representación virtual.
+
+Ejemplo:
+
+          🌲 BOSQUE
+
+      🏰 RUINA
+
+   👹      📍      🌀
+             \
+              🏚️
+
+        🛡️ JUGADOR
+
+El jugador utiliza controles táctiles.
+
+---
+
+21. DESPLAZAMIENTO VIRTUAL
+
+Crear:
+
+Virtual Movement.
+
+Control:
+
+JOYSTICK.
+
+El personaje puede desplazarse por el mundo virtual aunque el jugador esté sentado.
+
+La distancia recorrida en modo libre NO debe fingir que fue recorrida físicamente en la vida real.
+
+Guardar ambos progresos separados:
+
+REAL_EXPLORATION_DISTANCE
+
+VIRTUAL_EXPLORATION_DISTANCE
+
+Esto permite conservar la identidad del juego.
+
+---
+
+22. DIFERENCIA ENTRE LOS MODOS
+
+MUNDO REAL:
+
+exploración física.
+
+GPS.
+
+lugares reales.
+
+encuentros geográficos.
+
+beneficios de exploración.
+
+MODO LIBRE:
+
+movimiento virtual.
+
+mazmorras;
+
+historia;
+
+combate;
+
+exploración;
+
+progresión.
+
+No hacer que uno invalide al otro.
+
+---
+
+23. RECOMPENSAS ESPECIALES
+
+El modo mundo real puede ofrecer:
+
+descubrimientos;
+
+títulos;
+
+recursos especiales;
+
+eventos;
+
+lugares secretos.
+
+El modo libre ofrece:
+
+progresión;
+
+misiones;
+
+loot;
+
+mazmorras;
+
+combate;
+
+historia.
+
+No crear una situación donde el jugador que no pueda salir físicamente quede totalmente bloqueado.
+
+---
+
+24. CÁMARA
+
+Crear:
+
+MODO CÁMARA
+
+El jugador puede utilizar la cámara para visualizar criaturas o efectos del juego sobre el entorno real.
+
+En dispositivos compatibles:
+
+modo AR/realidad aumentada.
+
+En dispositivos no compatibles:
+
+modo cámara-overlay.
+
+---
+
+25. AR DEGRADABLE
+
+Nunca hacer que AR sea obligatoria.
+
+Niveles:
+
+LEVEL 0
+
+Sin cámara.
+
+LEVEL 1
+
+Cámara como fondo.
+
+LEVEL 2
+
+Overlay visual.
+
+LEVEL 3
+
+AR avanzada si el navegador/dispositivo lo permite.
+
+---
+
+26. ENCUENTRO CON CÁMARA
+
+Ejemplo:
+
+La pantalla vibra.
+
+⚠️ PRESENCIA DETECTADA
+
+El jugador pulsa:
+
+[ACTIVAR CÁMARA]
+
+Aparece:
+
+CRIATURA
+
+El jugador puede:
+
+mirarla;
+
+apuntar;
+
+interactuar;
+
+combatir.
+
+---
+
+27. COMPATIBILIDAD AR
+
+Detectar capacidades del dispositivo.
+
+Nunca suponer que todos los teléfonos soportan el mismo nivel de AR.
+
+Si la AR avanzada no está disponible:
+
+utilizar experiencia alternativa.
+
+La campaña completa debe seguir funcionando sin AR.
+
+---
+
+28. COMBATE PRINCIPAL
+
+El juego sigue siendo un:
+
+RPG narrativo.
+
+Pero el combate debe tener sensación de acción.
+
+No utilizar combate extremadamente lento por turnos.
+
+Cada acción tiene:
+
+tiempo;
+
+cooldown;
+
+coste;
+
+prioridad.
+
+---
+
+29. COMBATE VISUAL
+
+Ejemplo:
+
+━━━━━━━━━━━━━━
+
+👹 GUARDIÁN
+
+HP ███████░░░
+
+Nivel 24
+
+━━━━━━━━━━━━━━
+
+📜
+
+"El monstruo avanza..."
+
+━━━━━━━━━━━━━━
+
+❤️ 890 / 1200
+
+💙 210 / 300
+
+⚡ 70 / 100
+
+━━━━━━━━━━━━━━
+
+[ ATAQUE ]
+
+[ HABILIDAD ]
+
+[ DEFENDER ]
+
+[ ESQUIVAR ]
+
+[ ULTIMATE ]
+
+━━━━━━━━━━━━━━
+
+---
+
+30. NARRATIVA DURANTE COMBATE
+
+El texto debe reaccionar a la batalla.
+
+Ejemplo:
+
+"El Guardián levanta su brazo."
+
+[ESQUIVAR]
+
+"Te deslizas debajo del ataque."
+
+"Encuentras una abertura."
+
+[ATACAR]
+
+"Tu espada golpea el núcleo."
+
+La narrativa y el combate deben sentirse conectados.
+
+---
+
+31. CLASES
+
+Crear inicialmente:
+
+GUERRERO
+
+CABALLERO
+
+BERSERKER
+
+MAGO
+
+HECHICERO
+
+ARQUERO
+
+PÍCARO
+
+ASESINO
+
+SACERDOTE
+
+PALADÍN
+
+INVOCADOR
+
+EXPLORADOR
+
+MONJE
+
+ARTÍFICE
+
+GUARDIÁN
+
+Permitir evolución.
+
+---
+
+32. EVOLUCIÓN DE CLASE
+
+Ejemplo:
+
+GUERRERO
+
+↓
+
+GUARDIÁN
+
+↓
+
+CAMPEÓN
+
+↓
+
+CLASE SUPERIOR
+
+↓
+
+CLASE LEGENDARIA
+
+No fijar un único camino.
+
+---
+
+33. PROGRESIÓN ABIERTA
+
+No establecer:
+
+"NIVEL MÁXIMO 100"
+
+como final del juego.
+
+Permitir:
+
+Nivel 1.
+
+10. 
+
+11. 
+
+12. 
+
+13. 
+
+14. 
+
+15. 
+
+pero controlar escalas matemáticas para evitar números absurdos sin propósito.
+
+El nivel es solo una parte del poder.
+
+---
+
+34. PODER TOTAL
+
+Calcular a partir de:
+
+Nivel.
+
+Equipo.
+
+Habilidades.
+
+Runas.
+
+Maestría.
+
+Títulos.
+
+Artefactos.
+
+Decisiones.
+
+Especialización.
+
+---
+
+35. HABILIDADES
+
+Cada habilidad contiene:
+
+ID.
+
+Nombre.
+
+Descripción.
+
+Tipo.
+
+Coste.
+
+Cooldown.
+
+Daño.
+
+Efectos.
+
+Animación.
+
+Icono SVG.
+
+Rareza.
+
+Nivel.
+
+Clase.
+
+Tags.
+
+---
+
+36. SISTEMA DE TAGS
+
+Cada habilidad puede tener:
+
+FIRE
+
+ICE
+
+LIGHTNING
+
+SHADOW
+
+HOLY
+
+PHYSICAL
+
+ARCANE
+
+POISON
+
+BLOOD
+
+WIND
+
+EARTH
+
+VOID
+
+Esto permite combos.
+
+---
+
+37. COMBOS
+
+Ejemplo:
+
+ICE
+
++ 
+
+LIGHTNING
+
+=
+
+STORM_FROZEN
+
+FIRE
+
++ 
+
+WIND
+
+=
+
+INFERNAL_TEMPEST
+
+SHADOW
+
++ 
+
+BLOOD
+
+=
+
+ABYSSAL_BINDING
+
+Crear sistema modular.
+
+No codificar cada combinación manualmente.
+
+---
+
+38. EFECTOS
+
+Crear:
+
+VENENO.
+
+QUEMADURA.
+
+SANGRADO.
+
+CONGELACIÓN.
+
+PARÁLISIS.
+
+SILENCIO.
+
+MALDICIÓN.
+
+CEGUERA.
+
+DEBILIDAD.
+
+FRENESÍ.
+
+LENTO.
+
+MARCADO.
+
+---
+
+39. ENEMIGOS
+
+Crear familias:
+
+BEAST
+
+DEMON
+
+UNDEAD
+
+SPIRIT
+
+HUMANOID
+
+CONSTRUCT
+
+ABYSSAL
+
+PLANT
+
+ELDRITCH
+
+ANCIENT
+
+---
+
+40. IA
+
+Comportamientos:
+
+AGGRESSIVE
+
+DEFENSIVE
+
+RANGED
+
+SUPPORT
+
+ASSASSIN
+
+TANK
+
+BOSS
+
+SWARM
+
+COWARD
+
+HUNTER
+
+---
+
+41. MAZMORRAS
+
+El corazón del RPG.
+
+Crear:
+
+CRIPTS.
+
+CASTLES.
+
+CAVES.
+
+TEMPLES.
+
+RUINS.
+
+FORESTS.
+
+TOWERS.
+
+FORTRESSES.
+
+ABANDONED CITIES.
+
+ANCIENT LIBRARIES.
+
+BROKEN DIMENSIONS.
+
+---
+
+42. MAZMORRAS PROCEDURALES
+
+Utilizar:
+
+WORLD_SEED.
+
+DUNGEON_SEED.
+
+FLOOR_SEED.
+
+BIOME.
+
+DIFFICULTY.
+
+ROOM_POOL.
+
+BOSS_POOL.
+
+LOOT_POOL.
+
+EVENT_POOL.
+
+La seed debe permitir reproducibilidad.
+
+---
+
+43. PISOS INFINITOS
+
+No limitar artificialmente la profundidad.
+
+Piso 1.
+
+Piso 10.
+
+Piso 100.
+
+Piso 1000.
+
+Piso ???
+
+Las mazmorras profundas deben volverse:
+
+más peligrosas;
+
+más extrañas;
+
+menos comprensibles.
+
+---
+
+44. MAZMORRAS VIVIENTES
+
+Las mazmorras pueden cambiar.
+
+Puede cambiar:
+
+ruta;
+
+enemigos;
+
+eventos;
+
+boss;
+
+loot;
+
+habitaciones;
+
+secretos.
+
+---
+
+45. BRECHAS DEL MUNDO REAL
+
+Las Brechas pueden aparecer sobre el mapa real.
+
+Ejemplo:
+
+🌀 BRECHA DETECTADA
+
+Distancia:
+
+183 m.
+
+Rango:
+
+B.
+
+Amenaza:
+
+██████░░
+
+[IR]
+
+---
+
+46. BRECHAS ESPECIALES
+
+Crear:
+
+BRECHA NORMAL.
+
+BRECHA RARA.
+
+BRECHA INESTABLE.
+
+BRECHA NEGRA.
+
+BRECHA TEMPORAL.
+
+BRECHA VIVA.
+
+BRECHA ANCIANA.
+
+BRECHA DESCONOCIDA.
+
+---
+
+47. BOSS WORLD EVENTS
+
+Una Brecha puede convertirse en:
+
+WORLD BOSS.
+
+Ejemplo:
+
+"El cielo se oscurece."
+
+"Una Brecha de categoría desconocida ha aparecido."
+
+Los jugadores cercanos reciben aviso.
+
+---
+
+48. MULTIJUGADOR LOCAL WI-FI
+
+OBJETIVO:
+
+2–4 jugadores.
+
+Sin Internet.
+
+Misma red Wi-Fi.
+
+Cada dispositivo ejecuta la PWA.
+
+---
+
+49. CONEXIÓN LOCAL SIN SERVIDOR EXTERNO
+
+No depender de un backend externo para jugar localmente.
+
+Utilizar:
+
+WebRTC RTCDataChannel
+
+para el canal P2P cuando sea viable. WebRTC permite intercambiar datos entre navegadores y los DataChannels están diseñados también para transmitir estado de juegos.
+
+Pero NO asumir que WebRTC se conecta mágicamente.
+
+La negociación inicial necesita intercambio de información entre participantes.
+
+Para el modo completamente offline:
+
+utilizar señalización local mediante:
+
+QR.
+
+Código de sesión.
+
+Copy/Paste.
+
+o mecanismo local equivalente.
+
+NO depender obligatoriamente de un servidor de señalización remoto.
+
+---
+
+50. CREAR SALA
+
+Jugador A:
+
+[CREAR PARTIDA LOCAL]
+
+Generar:
+
+ROOM ID
+
+SESSION ID
+
+HOST ID
+
+Mostrar:
+
+⚔️ SALA DE AVENTURA
+
+Código:
+AB7X-92
+
+Jugadores:
+1/4
+
+[ MOSTRAR QR ]
+
+---
+
+51. UNIRSE
+
+Jugador B:
+
+[UNIRSE A PARTIDA LOCAL]
+
+Puede:
+
+escanear QR;
+
+introducir código;
+
+intercambiar información de conexión.
+
+---
+
+52. PRESENCIA DEL OTRO JUGADOR
+
+REGLA FUNDAMENTAL:
+
+El otro jugador NO debe aparecer solamente en una lista.
+
+Debe aparecer físicamente dentro del mundo.
+
+Ejemplo:
+
+                👹
+                
+        🧙 Jugador B
+             ↓
+
+       🧙 Jugador A
+
+Cada personaje tendrá:
+
+posición;
+
+rotación;
+
+movimiento;
+
+dirección;
+
+estado;
+
+animación;
+
+nombre;
+
+nivel;
+
+estado de combate.
+
+---
+
+53. COORDENADAS MULTIJUGADOR
+
+Cada jugador mantiene:
+
+WORLD_X
+
+WORLD_Y
+
+WORLD_Z
+
+CHUNK_X
+
+CHUNK_Y
+
+CHUNK_Z
+
+ROTATION
+
+VELOCITY
+
+TIMESTAMP
+
+PLAYER_ID
+
+MODE
+
+---
+
+54. COORDENADAS DEL MUNDO REAL
+
+Cuando se está en:
+
+MODO MUNDO REAL
+
+guardar:
+
+latitude;
+
+longitude;
+
+accuracy;
+
+timestamp;
+
+heading;
+
+speed si está disponible.
+
+Convertir estas coordenadas a:
+
+WORLD_X
+
+WORLD_Y
+
+y mantener una referencia local para evitar usar coordenadas gigantes directamente.
+
+---
+
+55. COORDENADAS LOCALES
+
+Crear:
+
+LOCAL_ORIGIN.
+
+Ejemplo:
+
+La posición GPS inicial de la sala se convierte en:
+
+0,0.
+
+Jugador A:
+
+0,0
+
+Jugador B:
+
+3.2,1.7
+
+Jugador C:
+
+-4.0,2.1
+
+Esto evita números gigantes y mejora estabilidad.
+
+---
+
+56. MULTIJUGADOR EN MUNDO REAL
+
+Si ambos jugadores están físicamente cerca:
+
+comparten:
+
+posición;
+
+estado;
+
+nombre;
+
+avatar;
+
+nivel.
+
+El personaje del otro aparece en el mapa y, cuando corresponda, en la escena.
+
+---
+
+57. RADIO DE VISIBILIDAD
+
+No mostrar jugadores a kilómetros.
+
+Crear:
+
+LOCAL_PLAYER_RADIUS.
+
+Ejemplo configurable:
+
+50 m.
+
+100 m.
+
+250 m.
+
+El radio depende del modo y del rendimiento.
+
+---
+
+58. MULTIJUGADOR EN MODO LIBRE
+
+Aquí ambos jugadores pueden estar físicamente en lugares completamente diferentes.
+
+Eso NO debe impedir jugar juntos.
+
+El sistema crea:
+
+PARTY INSTANCE
+
+Ambos entran en una misma instancia virtual.
+
+El otro personaje aparece al lado del jugador.
+
+Aunque uno esté en su casa y otro en otra ubicación física.
+
+---
+
+59. PARTY COORDINATES
+
+En MODO LIBRE:
+
+cada jugador utiliza:
+
+INSTANCE_ID.
+
+PARTY_X.
+
+PARTY_Y.
+
+PARTY_Z.
+
+La posición virtual sustituye a la posición GPS.
+
+Esto permite explorar juntos desde casa.
+
+---
+
+60. TRANSICIÓN ENTRE MODOS
+
+El jugador puede pasar:
+
+MUNDO REAL
+
+↓
+
+BRECHA
+
+↓
+
+MAZMORRA
+
+↓
+
+MODO INSTANCIA
+
+sin desconectar la party.
+
+Ejemplo:
+
+4 jugadores llegan a una Brecha.
+
+Todos reciben:
+
+"¿ENTRAR EN LA BRECHA?"
+
+[SI]
+
+La party entra a una instancia compartida.
+
+---
+
+61. SALIR DE LA MAZMORRA
+
+Al terminar:
+
+regresar a:
+
+MUNDO REAL
+
+o
+
+MODO LIBRE
+
+dependiendo de dónde se inició la aventura.
+
+---
+
+62. ESTADO DEL JUGADOR
+
+Cada jugador tiene:
+
+WORLD_MODE
+
+REAL_WORLD
+
+FREE_MODE
+
+DUNGEON
+
+BATTLE
+
+TOWN
+
+PARTY_INSTANCE
+
+---
+
+63. COOPERATIVO
+
+2–4 jugadores.
+
+Roles:
+
+TANK.
+
+DPS.
+
+HEALER.
+
+SUPPORT.
+
+CONTROL.
+
+ASSASSIN.
+
+EXPLORER.
+
+Los jugadores pueden cambiar builds.
+
+---
+
+64. ATAQUES COMBINADOS
+
+Ejemplo:
+
+Jugador A:
+
+Muro de hielo.
+
+Jugador B:
+
+Rayo.
+
+Resultado:
+
+PRISIÓN ELÉCTRICA.
+
+Crear sistema modular mediante tags.
+
+---
+
+65. REVIVIR
+
+Un jugador puede revivir a otro.
+
+Crear:
+
+REVIVE TIMER.
+
+DOWNED STATE.
+
+EMERGENCY RESCUE.
+
+---
+
+66. RAID BOSSES
+
+Para 2–4 jugadores.
+
+Bosses con:
+
+fases;
+
+mecánicas;
+
+áreas;
+
+ataques;
+
+minions;
+
+puntos débiles.
+
+---
+
+67. MODOS COMPETITIVOS LOCALES
+
+DUEL.
+
+ARENA.
+
+2V2.
+
+FREE FOR ALL.
+
+DUNGEON RACE.
+
+BOSS RUSH.
+
+SURVIVAL.
+
+---
+
+68. PvP
+
+No permitir que la progresión infinita rompa el equilibrio.
+
+Separar:
+
+PVE_POWER
+
+y
+
+PVP_POWER.
+
+Aplicar normalización.
+
+---
+
+69. DUNGEON RACE
+
+Todos reciben:
+
+la misma seed.
+
+o una seed equivalente.
+
+Gana el equipo que:
+
+termine primero;
+
+mate al boss;
+
+o consiga más puntos.
+
+---
+
+70. SURVIVAL
+
+Oleadas.
+
+Cada oleada aumenta dificultad.
+
+Boss periódico.
+
+Ranking local.
+
+---
+
+71. CLANES
+
+Permitir:
+
+crear clan;
+
+invitar;
+
+rangos;
+
+misiones;
+
+almacén;
+
+símbolo;
+
+nivel.
+
+---
+
+72. GREMIO
+
+Gremios del mundo:
+
+Exploradores.
+
+Magos.
+
+Guardianes.
+
+Mercaderes.
+
+Cazadores.
+
+Investigadores.
+
+Cada uno tiene:
+
+misiones;
+
+reputación;
+
+recompensas;
+
+lore.
+
+---
+
+73. NARRATIVA
+
+Crear:
+
+MAIN STORY.
+
+SIDE STORY.
+
+CHARACTER STORY.
+
+DUNGEON STORY.
+
+FACTION STORY.
+
+WORLD EVENT.
+
+HIDDEN STORY.
+
+LEGENDARY STORY.
+
+---
+
+74. MISTERIO CENTRAL
+
+Las Brechas parecen naturales.
+
+Pero no lo son.
+
+Descubrir progresivamente:
+
+quién las creó;
+
+qué existe detrás;
+
+qué relación tienen con los humanos;
+
+qué existió antes;
+
+por qué algunas reaccionan a los jugadores;
+
+qué existe en los pisos más profundos.
+
+No revelar toda la verdad rápidamente.
+
+---
+
+75. NARRATIVE ENGINE
+
+Crear un motor narrativo modular.
+
+Bases de datos:
+
+WORLD_LORE.
+
+CHARACTERS.
+
+LOCATIONS.
+
+QUESTS.
+
+FACTIONS.
+
+MONSTERS.
+
+ITEMS.
+
+EVENTS.
+
+DIALOGUES.
+
+WORLD_FLAGS.
+
+---
+
+76. WORLD FLAGS
+
+Ejemplo:
+
+saved_village = true
+
+boss_ancient_gate_defeated = true
+
+faction_shadow_friendly = true
+
+secret_room_discovered = true
+
+---
+
+77. CONSECUENCIAS
+
+Las decisiones deben producir consecuencias reales.
+
+No clasificar todo como:
+
+BUENO.
+
+MALO.
+
+Crear:
+
+consecuencias ambiguas;
+
+trade-offs;
+
+sacrificios;
+
+beneficios;
+
+pérdidas;
+
+eventos futuros.
+
+---
+
+78. NPC
+
+Cada NPC puede tener:
+
+nombre;
+
+personalidad;
+
+historia;
+
+relaciones;
+
+objetivos;
+
+secretos;
+
+memoria.
+
+---
+
+79. RIVALES
+
+Crear personajes que evolucionan.
+
+Si el jugador se fortalece:
+
+el rival puede cambiar.
+
+Esto crea historias personales.
+
+---
+
+80. COMPAÑEROS
+
+Compañeros desbloqueables.
+
+Cada uno:
+
+clase;
+
+habilidades;
+
+personalidad;
+
+historia;
+
+misiones;
+
+afinidad;
+
+secretos.
+
+---
+
+81. AFINIDAD
+
+No limitar a romance.
+
+Tipos:
+
+amistad;
+
+respeto;
+
+rivalidad;
+
+confianza;
+
+lealtad;
+
+miedo.
+
+---
+
+82. INVENTARIO
+
+ARMAS.
+
+ARMADURAS.
+
+ACCESORIOS.
+
+CONSUMIBLES.
+
+MATERIALES.
+
+RELIQUIAS.
+
+OBJETOS DE MISIÓN.
+
+---
+
+83. EQUIPO
+
+Ranuras:
+
+Arma.
+
+Armadura.
+
+Casco.
+
+Guantes.
+
+Botas.
+
+Amuleto.
+
+Anillo.
+
+Reliquia.
+
+---
+
+84. RAREZAS
+
+COMMON.
+
+UNCOMMON.
+
+RARE.
+
+EPIC.
+
+LEGENDARY.
+
+MYTHIC.
+
+ANCIENT.
+
+UNKNOWN.
+
+---
+
+85. OBJETOS ÚNICOS
+
+Pueden tener:
+
+historia;
+
+nombre;
+
+efecto;
+
+pasiva;
+
+habilidad;
+
+origen.
+
+---
+
+86. RUNAS
+
+Tipos:
+
+Fuego.
+
+Sangre.
+
+Velocidad.
+
+Vacío.
+
+Hielo.
+
+Rayo.
+
+Protección.
+
+Crítico.
+
+Crear combinaciones.
+
+---
+
+87. CRAFTING
+
+Forja.
+
+Alquimia.
+
+Encantamiento.
+
+Joyería.
+
+Runas.
+
+---
+
+88. ÁRBOLES DE HABILIDADES
+
+Crear especializaciones.
+
+No únicamente:
+
++5 daño.
+
+Crear decisiones.
+
+---
+
+89. MAESTRÍA
+
+Cada arma puede tener maestría.
+
+Cada habilidad puede evolucionar mediante uso.
+
+---
+
+90. TÍTULOS
+
+Ejemplos originales:
+
+Superviviente de la Primera Brecha.
+
+Explorador de Ruinas.
+
+Destructor de Reyes.
+
+Caminante de Mundos.
+
+Testigo del Abismo.
+
+Los títulos pueden producir efectos pequeños.
+
+---
+
+91. MUERTE
+
+No provocar frustración excesiva.
+
+Opciones:
+
+pérdida parcial;
+
+penalización;
+
+resurrección;
+
+daño al equipo;
+
+modo hardcore.
+
+---
+
+92. EVENTOS MUNDIALES
+
+Ejemplos:
+
+Brecha gigante.
+
+Ataque a ciudad.
+
+Boss mundial.
+
+Desaparición de NPC.
+
+Guerra de facciones.
+
+Mazmorra despierta.
+
+---
+
+93. MUNDO CAMBIANTE
+
+Registrar acontecimientos.
+
+El mundo debe poder reaccionar.
+
+---
+
+94. ICONOGRAFÍA
+
+Todos los iconos deben ser originales.
+
+Formato:
+
+SVG.
+
+NO:
+
+Font Awesome.
+
+Material Icons.
+
+emoji como icono final.
+
+iconos externos sin licencia.
+
+Crear:
+
+/assets/icons/
+
+---
+
+95. ICONOS SVG
+
+Crear SVG propios para:
+
+espada;
+
+escudo;
+
+magia;
+
+fuego;
+
+hielo;
+
+rayo;
+
+veneno;
+
+inventario;
+
+mapa;
+
+GPS;
+
+brújula;
+
+mazmorra;
+
+brecha;
+
+misión;
+
+personaje;
+
+clan;
+
+arena;
+
+cooperativo;
+
+PvP;
+
+loot;
+
+oro;
+
+XP;
+
+HP;
+
+MP;
+
+stamina;
+
+cámara;
+
+AR;
+
+Wi-Fi;
+
+offline;
+
+guardar;
+
+casa;
+
+aventura;
+
+modo libre;
+
+volver;
+
+cerrar;
+
+confirmar.
+
+---
+
+96. ESTILO VISUAL
+
+Estética:
+
+fantasía oscura;
+
+cinematográfica;
+
+mística;
+
+moderna;
+
+elegante.
+
+No parecer un anime genérico.
+
+No copiar el estilo visual exacto de ninguna franquicia.
+
+---
+
+97. UI
+
+La interfaz debe utilizar:
+
+paneles;
+
+cards;
+
+bordes;
+
+brillos;
+
+sombreados;
+
+microanimaciones;
+
+transiciones.
+
+Pero debe mantenerse ligera.
+
+---
+
+98. PANTALLA DE CARGA
+
+Mostrar:
+
+LOGO.
+
+NOMBRE.
+
+PROGRESO.
+
+CONSEJO.
+
+Estado:
+
+Inicializando mundo.
+
+Cargando recursos.
+
+Cargando región.
+
+Preparando aventurero.
+
+---
+
+99. MENÚ PRINCIPAL
+
+Mostrar:
+
+AVENTURA.
+
+MAZMORRAS.
+
+MAPA.
+
+MODO LIBRE.
+
+PERSONAJE.
+
+INVENTARIO.
+
+HABILIDADES.
+
+CLAN.
+
+ARENA.
+
+MULTIJUGADOR.
+
+AJUSTES.
+
+---
+
+100. PANTALLA DE MAPA
+
+Mostrar:
+
+posición;
+
+región;
+
+brechas;
+
+monstruos;
+
+misiones;
+
+mazmorras;
+
+jugadores;
+
+party;
+
+recursos.
+
+---
+
+101. DOS CAPAS DEL MAPA
+
+CAPA REAL:
+
+carreteras;
+
+zonas;
+
+posición.
+
+CAPA DEL JUEGO:
+
+monstruos;
+
+brechas;
+
+mazmorras;
+
+NPC;
+
+recursos;
+
+misiones.
+
+---
+
+102. PANTALLA DE MODO LIBRE
+
+Mostrar:
+
+"PROYECCIÓN ACTIVA"
+
+Estado:
+
+CONCIENCIA PROYECTADA
+
+[ JOYSTICK ]
+
+[MAPA]
+
+[INVESTIGAR]
+
+[COMBATIR]
+
+---
+
+103. PANTALLA DE PARTY
+
+Mostrar:
+
+Jugador A.
+
+Jugador B.
+
+Jugador C.
+
+Jugador D.
+
+HP.
+
+Estado.
+
+Distancia virtual.
+
+Clase.
+
+Nivel.
+
+---
+
+104. REPRESENTACIÓN DEL OTRO JUGADOR
+
+En la instancia:
+
+mostrar avatar.
+
+nombre.
+
+nivel.
+
+clase.
+
+estado.
+
+animación.
+
+posición.
+
+No limitarse a un marcador.
+
+---
+
+105. MINIMAPA
+
+Mostrar:
+
+jugadores;
+
+enemigos;
+
+NPC;
+
+objetivos.
+
+---
+
+106. HUD DE COMBATE
+
+Arriba:
+
+enemigo.
+
+Centro:
+
+narrativa/escena.
+
+Abajo:
+
+habilidades.
+
+Lateral:
+
+estado de party.
+
+---
+
+107. RESPONSIVE
+
+Optimizar:
+
+320. 
+
+321. 
+
+322. 
+
+323. 
+
+324. 
+
+325. 
+
+768+.
+
+---
+
+108. SAFE AREA
+
+Usar:
+
+env(safe-area-inset-top)
+
+env(safe-area-inset-bottom)
+
+y equivalentes.
+
+Evitar interfaces tapadas por:
+
+notch;
+
+cámara;
+
+barra del sistema.
+
+---
+
+109. ORIENTACIÓN
+
+PORTRAIT:
+
+historia;
+
+mapa;
+
+inventario;
+
+personaje.
+
+LANDSCAPE:
+
+combate;
+
+mazmorras;
+
+PvP.
+
+---
+
+110. PWA
+
+Usar:
+
+HTML5.
+
+CSS3.
+
+JavaScript moderno.
+
+Service Worker.
+
+Manifest.
+
+IndexedDB.
+
+Cache API.
+
+Web Crypto API.
+
+Web Workers.
+
+---
+
+111. OFFLINE FIRST
+
+Regla absoluta:
+
+Internet NO debe ser un requisito para la campaña individual.
+
+Después de preparar los recursos necesarios:
+
+JUGAR OFFLINE.
+
+---
+
+112. CONTENIDO OFFLINE
+
+Debe funcionar offline:
+
+historia;
+
+combate;
+
+mazmorras;
+
+modo libre;
+
+progresión;
+
+inventario;
+
+crafting;
+
+NPC locales;
+
+generación procedural;
+
+guardado;
+
+mapa previamente descargado;
+
+encuentros locales.
+
+---
+
+113. QUÉ NECESITA INTERNET
+
+Dejar claramente separado:
+
+actualizaciones;
+
+descarga inicial;
+
+descarga de nuevas regiones;
+
+contenido remoto;
+
+cuenta remota;
+
+sincronización cloud;
+
+multijugador online futuro.
+
+---
+
+114. OFFLINE + GPS
+
+No asumir que el GPS siempre estará disponible sin conexión.
+
+Si el dispositivo entrega posición:
+
+usar MODO MUNDO REAL.
+
+Si la ubicación no está disponible:
+
+cambiar automáticamente a MODO LIBRE.
+
+Nunca bloquear al jugador.
+
+---
+
+115. PÉRDIDA DE CONEXIÓN
+
+Si Internet desaparece:
+
+mostrar:
+
+OFFLINE.
+
+Continuar jugando.
+
+No perder progreso.
+
+---
+
+116. SINCRONIZACIÓN
+
+Cuando vuelva Internet:
+
+SYNC QUEUE.
+
+Sincronizar únicamente:
+
+eventos;
+
+progreso;
+
+descubrimientos;
+
+datos necesarios.
+
+---
+
+117. ALMACENAMIENTO LOCAL
+
+IndexedDB para:
+
+personaje;
+
+inventario;
+
+misiones;
+
+progreso;
+
+world flags;
+
+región;
+
+mazmorras;
+
+descubrimientos;
+
+settings.
+
+Utilizar almacenamiento más apropiado cuando sea necesario para archivos pesados.
+
+---
+
+118. GENERACIÓN PROCEDURAL
+
+Crear:
+
+DungeonGenerator.
+
+MonsterGenerator.
+
+LootGenerator.
+
+QuestGenerator.
+
+EventGenerator.
+
+EncounterGenerator.
+
+WorldGenerator.
+
+---
+
+119. SEEDS
+
+WORLD_SEED.
+
+REGION_SEED.
+
+DUNGEON_SEED.
+
+EVENT_SEED.
+
+ENCOUNTER_SEED.
+
+Esto permite reproducibilidad.
+
+---
+
+120. RENDIMIENTO
+
+Prioridades:
+
+FPS.
+
+Memoria.
+
+Batería.
+
+Carga.
+
+Tamaño.
+
+---
+
+121. ADAPTIVE QUALITY
+
+Crear:
+
+LOW.
+
+MEDIUM.
+
+HIGH.
+
+AUTO.
+
+Reducir automáticamente:
+
+animaciones;
+
+partículas;
+
+efectos;
+
+sombras;
+
+frecuencia de actualización;
+
+distancia de representación.
+
+---
+
+122. WEB WORKERS
+
+Mover a Worker cuando sea apropiado:
+
+generación procedural;
+
+procesamiento de seeds;
+
+generación de loot;
+
+cálculos pesados;
+
+procesamiento de mapas.
+
+No bloquear el hilo de UI.
+
+---
+
+123. MULTIJUGADOR OPTIMIZADO
+
+No enviar estado completo constantemente.
+
+Utilizar:
+
+snapshots;
+
+delta updates;
+
+event IDs;
+
+interpolation;
+
+prediction cuando sea necesaria.
+
+---
+
+124. FRECUENCIA DE POSICIONES
+
+Crear frecuencias separadas:
+
+movimiento;
+
+combate;
+
+eventos;
+
+inventario.
+
+No sincronizar cada detalle 60 veces por segundo.
+
+---
+
+125. INTERPOLACIÓN DE OTROS JUGADORES
+
+Cuando el otro jugador envíe:
+
+posición A
+
+y después
+
+posición B
+
+representarlo suavemente.
+
+Nunca hacerlo saltar entre posiciones.
+
+---
+
+126. OFFLINE LOCAL MULTIPLAYER
+
+El estado local de la party puede mantenerse sin Internet.
+
+No sincronizar con servidores.
+
+Los dispositivos intercambian directamente:
+
+posición;
+
+acciones;
+
+eventos;
+
+estado.
+
+---
+
+127. IDENTIDAD LOCAL
+
+Cada jugador tendrá:
+
+PLAYER_ID local.
+
+SESSION_ID.
+
+PARTY_ID.
+
+DEVICE_ID temporal.
+
+No utilizar datos personales innecesarios.
+
+---
+
+128. RECONEXIÓN
+
+Si un dispositivo se desconecta momentáneamente:
+
+intentar reconectar.
+
+No expulsar inmediatamente.
+
+Guardar estado temporal.
+
+---
+
+129. PARTIDA LOCAL HOST
+
+El HOST mantiene:
+
+seed de partida;
+
+estado de party;
+
+eventos;
+
+room config.
+
+Pero no debe convertirse en un servidor gigantesco.
+
+---
+
+130. MIGRACIÓN DE HOST
+
+Si es viable:
+
+si el host abandona:
+
+otro jugador puede asumir el control.
+
+---
+
+131. MODO ARENA LOCAL
+
+El host crea:
+
+ARENA SESSION.
+
+Todos reciben:
+
+seed;
+
+mapa;
+
+reglas.
+
+---
+
+132. BALANCE PvP
+
+Separar estadísticas PvE/PvP.
+
+Evitar que el nivel infinito destruya el competitivo.
+
+---
+
+133. SONIDO
+
+Crear:
+
+música;
+
+ambiente;
+
+ataques;
+
+golpes;
+
+skills;
+
+boss;
+
+Brechas;
+
+cámara;
+
+GPS;
+
+UI.
+
+Utilizar Web Audio API.
+
+---
+
+134. ACCESIBILIDAD
+
+Permitir:
+
+texto grande;
+
+alto contraste;
+
+reducción de animaciones;
+
+desactivar vibración;
+
+volumen separado;
+
+modo daltónico cuando sea apropiado.
+
+---
+
+135. SEGURIDAD
+
+No guardar:
+
+secretos;
+
+API privadas;
+
+claves administrativas.
+
+No confiar en el cliente para:
+
+PvP online;
+
+rankings;
+
+economía global.
+
+---
+
+136. ARQUITECTURA MODULAR
+
+Crear:
+
+/src
+
+/core
+
+/game
+
+/world
+
+/world-real
+
+/free-mode
+
+/map
+
+/gps
+
+/encounters
+
+/ar
+
+/dungeon
+
+/combat
+
+/player
+
+/classes
+
+/skills
+
+/items
+
+/loot
+
+/enemies
+
+/bosses
+
+/narrative
+
+/npc
+
+/factions
+
+/multiplayer
+
+/pvp
+
+/party
+
+/ui
+
+/audio
+
+/storage
+
+/pwa
+
+/workers
+
+/utils
+
+/assets/icons
+
+/assets/illustrations
+
+/assets/data
+
+---
+
+137. REGLA DE ARCHIVOS
+
+No permitir archivos gigantes.
+
+Objetivo:
+
+máximo aproximado de 200 líneas por archivo.
+
+Si un archivo crece:
+
+dividirlo.
+
+Nunca crear:
+
+game.js
+
+de miles de líneas.
+
+---
+
+138. SEPARACIÓN
+
+Separar:
+
+GAME LOGIC.
+
+UI.
+
+DATA.
+
+MAP.
+
+GPS.
+
+NETWORK.
+
+STORAGE.
+
+NARRATIVE.
+
+COMBAT.
+
+AUDIO.
+
+ASSETS.
+
+---
+
+139. DATOS EXTERNOS
+
+Utilizar JSON para:
+
+monstruos;
+
+objetos;
+
+skills;
+
+misiones;
+
+NPC;
+
+bosses;
+
+dialogues;
+
+loot;
+
+factions;
+
+biomes.
+
+---
+
+140. SISTEMA DE VALIDACIÓN
+
+Crear:
+
+DataValidator.
+
+LoreValidator.
+
+SaveValidator.
+
+DungeonValidator.
+
+NetworkValidator.
+
+---
+
+141. PRUEBAS
+
+Probar:
+
+offline;
+
+online;
+
+Wi-Fi local;
+
+2 jugadores;
+
+3 jugadores;
+
+4 jugadores;
+
+GPS;
+
+GPS inestable;
+
+sin GPS;
+
+modo libre;
+
+cámara;
+
+AR disponible;
+
+AR no disponible;
+
+pantalla pequeña;
+
+portrait;
+
+landscape;
+
+batería limitada.
+
+---
+
+142. FALLBACKS
+
+Si no hay GPS:
+
+MODO LIBRE.
+
+Si no hay cámara:
+
+MODO NORMAL.
+
+Si no hay AR:
+
+CAMERA OVERLAY o NORMAL.
+
+Si no hay WebRTC:
+
+mostrar método alternativo de conexión local soportado por la arquitectura.
+
+Si el dispositivo es débil:
+
+LOW MODE.
+
+Nunca romper todo el juego por una función opcional.
+
+---
+
+143. MODO DESCUBRIMIENTO
+
+El jugador puede descubrir:
+
+lugares;
+
+Brechas;
+
+enemigos;
+
+NPC;
+
+recursos;
+
+mazmorras;
+
+secretos.
+
+---
+
+144. MAPA DE DESCUBRIMIENTOS
+
+Crear:
+
+DESCUBRIMIENTOS DEL AVENTURERO.
+
+Ejemplo:
+
+Región:
+
+12%.
+
+Brechas:
+
+17. 
+
+Mazmorras:
+
+8. 
+
+Jefes:
+
+3. 
+
+Secretos:
+
+2. 
+
+---
+
+145. DISTINTIVO DE EXPLORACIÓN REAL
+
+Registrar:
+
+distancia real;
+
+regiones descubiertas;
+
+Brechas encontradas;
+
+ubicaciones descubiertas.
+
+Pero separar estadísticas reales de virtuales.
+
+---
+
+146. DISTANCIA VIRTUAL
+
+Registrar:
+
+distancia virtual;
+
+pisos explorados;
+
+mazmorras;
+
+aventuras.
+
+Esto permite progresar incluso desde casa.
+
+---
+
+147. SISTEMA DE ENCUENTROS VIRTUALES
+
+En MODO LIBRE:
+
+el Encounter Engine continúa funcionando.
+
+Puede generar:
+
+monstruos;
+
+eventos;
+
+NPC;
+
+Brechas;
+
+mazmorras.
+
+---
+
+148. EVENTOS TEMPORALES
+
+Crear eventos que aparezcan:
+
+cada hora;
+
+día;
+
+semana;
+
+temporada.
+
+Pero deben guardarse localmente.
+
+---
+
+149. CONTENIDO RARO
+
+Crear encuentros extremadamente raros.
+
+Ejemplo:
+
+1/1000.
+
+Pero nunca obligar al jugador a esperar infinitamente.
+
+---
+
+150. BOSSES OCULTOS
+
+Crear bosses que puedan descubrirse:
+
+por ubicación;
+
+por hora;
+
+por decisiones;
+
+por seed;
+
+por combinación de eventos.
+
+---
+
+151. SISTEMA DE CLIMA
+
+OPCIONAL.
+
+Cuando hay datos externos:
+
+el clima real puede modificar encuentros.
+
+Sin Internet:
+
+el juego no depende de esta función.
+
+---
+
+152. SISTEMA DE HORA
+
+Usar hora local.
+
+Modificar:
+
+criaturas;
+
+eventos;
+
+NPC;
+
+Brechas.
+
+---
+
+153. NPC DEL MUNDO REAL
+
+No colocar NPC directamente sobre personas.
+
+Utilizar puntos ficticios del mapa.
+
+Nunca rastrear personas reales.
+
+---
+
+154. SEGURIDAD FÍSICA
+
+El juego NUNCA debe:
+
+obligar a mirar continuamente la pantalla mientras se camina;
+
+pedir que el jugador vaya a zonas peligrosas;
+
+pedir que cruce calles;
+
+dirigirlo a lugares privados;
+
+premiar conductas peligrosas.
+
+Mostrar:
+
+"Presta atención a tu entorno."
+
+No crear misiones dependientes de zonas peligrosas.
+
+---
+
+155. PRIVACIDAD
+
+No mostrar la ubicación exacta de otro jugador fuera del radio permitido.
+
+No compartir coordenadas GPS públicamente.
+
+En party:
+
+compartir únicamente con participantes autorizados.
+
+---
+
+156. PERSONAJE EN EL MAPA
+
+Cada jugador tendrá:
+
+avatar;
+
+clase;
+
+nivel;
+
+nombre;
+
+animación.
+
+En MUNDO REAL:
+
+convertir GPS → coordenadas virtuales.
+
+En MODO LIBRE:
+
+usar coordenadas de instancia.
+
+---
+
+157. TRANSFORMACIÓN DE COORDENADAS
+
+Crear:
+
+GeoCoordinateService.
+
+Funciones:
+
+geoToWorld();
+
+worldToGeo();
+
+distance();
+
+bearing();
+
+normalizeOrigin();
+
+projectToLocal();
+
+Nunca utilizar directamente lat/lon como posición gráfica 3D/2D.
+
+---
+
+158. ORIGEN LOCAL
+
+Cada sesión tendrá:
+
+ORIGIN_LAT.
+
+ORIGIN_LON.
+
+Todo el mundo cercano se expresa respecto al origen.
+
+---
+
+159. WORLD CHUNKS
+
+Dividir el mundo en:
+
+CHUNK_X.
+
+CHUNK_Y.
+
+Los chunks permiten:
+
+cargar;
+
+descargar;
+
+generar;
+
+sincronizar.
+
+---
+
+160. STREAMING
+
+Nunca cargar una región gigantesca.
+
+Cargar:
+
+chunk actual;
+
+chunks vecinos.
+
+Descargar:
+
+chunks alejados.
+
+---
+
+161. MAP RENDERING
+
+Utilizar una tecnología de mapas web adecuada y desacoplada del juego.
+
+La capa del mapa debe poder cambiarse sin reescribir el sistema RPG.
+
+---
+
+162. DATOS CARTOGRÁFICOS
+
+Siempre respetar:
+
+licencias;
+
+atribución;
+
+límites de uso;
+
+fuentes de datos.
+
+Guardar metadata de procedencia.
+
+---
+
+163. ASSETS
+
+Todo asset externo debe tener:
+
+author;
+
+source;
+
+license;
+
+version;
+
+attribution.
+
+---
+
+164. ILUSTRACIONES
+
+Preferir:
+
+arte original;
+
+SVG;
+
+assets generados específicamente;
+
+recursos con licencia clara.
+
+---
+
+165. SCREEN FLOW
+
+Crear flujo:
+
+BOOT
+
+↓
+
+LOADING
+
+↓
+
+MAIN MENU
+
+↓
+
+PROFILE
+
+↓
+
+MODE SELECT
+
+↓
+
+WORLD MAP / FREE MODE
+
+↓
+
+DUNGEON
+
+↓
+
+COMBAT
+
+↓
+
+REWARD
+
+↓
+
+PROGRESSION
+
+↓
+
+SAVE
+
+---
+
+166. SELECTOR DE MODO
+
+Mostrar claramente:
+
+🌍 MUNDO REAL
+
+"Explora físicamente."
+
+🌀 MODO LIBRE
+
+"Explora desde cualquier lugar."
+
+No ocultar el segundo.
+
+---
+
+167. MODO LIBRE DESDE CASA
+
+Crear explicación narrativa:
+
+"Tu cuerpo permanece aquí."
+
+"Tu conciencia puede cruzar la Frontera."
+
+"El Reino responde a la voluntad del aventurero."
+
+Esto integra la mecánica con el lore.
+
+---
+
+168. HISTORIA DEL PODER
+
+En algún punto de la historia:
+
+todos los aventureros descubren la capacidad de Proyección.
+
+El jugador descubrirá que:
+
+no todos los aventureros la dominan igual;
+
+ciertas Brechas reaccionan a ella;
+
+algunos lugares no pueden ser visitados físicamente;
+
+el Modo Libre puede revelar áreas que no existen en el mapa real.
+
+Esto convierte el modo libre en una mecánica narrativa.
+
+---
+
+169. BRECHAS EXCLUSIVAS
+
+Algunas Brechas:
+
+SOLO MUNDO REAL.
+
+Otras:
+
+SOLO MODO LIBRE.
+
+Otras:
+
+AMBAS.
+
+Esto genera variedad.
+
+---
+
+170. MAZMORRAS HÍBRIDAS
+
+Una mazmorra puede comenzar:
+
+MUNDO REAL
+
+y continuar:
+
+MODO LIBRE.
+
+Ejemplo:
+
+Encuentras una entrada real.
+
+↓
+
+Entras.
+
+↓
+
+La realidad se rompe.
+
+↓
+
+La mazmorra continúa en una dimensión propia.
+
+---
+
+171. MODO COOPERATIVO HÍBRIDO
+
+Jugador A:
+
+entra desde mundo real.
+
+Jugador B:
+
+entra mediante modo libre.
+
+Ambos pueden reunirse en la misma instancia.
+
+---
+
+172. ESTADO DE PARTY HÍBRIDO
+
+La party debe definir:
+
+PARTY_WORLD
+
+REAL.
+
+FREE.
+
+DUNGEON.
+
+Si alguien cambia de modo:
+
+la party puede entrar en una instancia común cuando corresponda.
+
+---
+
+173. SISTEMA DE INSTANCIAS
+
+Cada mazmorra cooperativa tiene:
+
+INSTANCE_ID.
+
+SEED.
+
+PARTY_ID.
+
+DIFFICULTY.
+
+BOSS.
+
+LOOT_SEED.
+
+---
+
+174. LOOT
+
+Rarezas:
+
+COMMON.
+
+UNCOMMON.
+
+RARE.
+
+EPIC.
+
+LEGENDARY.
+
+MYTHIC.
+
+ANCIENT.
+
+UNKNOWN.
+
+---
+
+175. LOOT PROCEDURAL
+
+Generar objetos mediante:
+
+base item;
+
+affixes;
+
+rarity;
+
+class;
+
+element;
+
+passives.
+
+Ejemplo:
+
+Espada
+
++ 
+
+Sangre
+
++ 
+
+Crítico
+
++ 
+
+Velocidad
+
+=
+
+objeto único.
+
+---
+
+176. SISTEMA DE AFFIXES
+
+Crear:
+
++Attack.
+
++Defense.
+
++Critical.
+
++Fire Damage.
+
++Mana.
+
++Speed.
+
++Cooldown Reduction.
+
++Life Steal.
+
+etc.
+
+---
+
+177. CRAFTING
+
+Permitir:
+
+forjar;
+
+mejorar;
+
+desmontar;
+
+encantar;
+
+fusionar.
+
+---
+
+178. INVENTARIO MOBILE
+
+Touch-first.
+
+Arrastrar objetos.
+
+Tap para información.
+
+Long press para detalles.
+
+---
+
+179. PANEL DE OBJETO
+
+Mostrar:
+
+nombre;
+
+rareza;
+
+nivel;
+
+stats;
+
+habilidades;
+
+lore;
+
+comparación.
+
+---
+
+180. SISTEMA DE LOGROS
+
+Crear cientos.
+
+No mostrar todos desde el inicio.
+
+---
+
+181. TEMPORADAS
+
+Añadir:
+
+historias;
+
+mazmorras;
+
+bosses;
+
+eventos;
+
+objetos;
+
+recompensas.
+
+---
+
+182. PROGRESIÓN INFINITA
+
+Agregar nuevas capas:
+
+maestrías;
+
+clases;
+
+títulos;
+
+artefactos;
+
+mazmorras;
+
+lore.
+
+No depender únicamente de subir números.
+
+---
+
+183. SISTEMA DE RANKINGS
+
+LOCAL:
+
+sin Internet.
+
+GLOBAL:
+
+cuando exista backend.
+
+Separar ambos.
+
+---
+
+184. MODO OFFLINE COMPLETO
+
+El jugador debe poder:
+
+abrir PWA;
+
+cargar partida;
+
+entrar en modo libre;
+
+luchar;
+
+hacer mazmorras;
+
+guardar;
+
+continuar historia.
+
+Aunque no haya Internet.
+
+---
+
+185. SERVICE WORKER
+
+Cachear:
+
+shell;
+
+UI;
+
+datos esenciales;
+
+arte;
+
+iconos;
+
+audio esencial;
+
+sistemas.
+
+No cachear indiscriminadamente archivos gigantes.
+
+---
+
+186. ACTUALIZACIONES
+
+Cuando aparezca una actualización:
+
+avisar.
+
+Permitir:
+
+ACTUALIZAR AHORA
+
+o
+
+ACTUALIZAR DESPUÉS.
+
+No destruir partidas locales.
+
+---
+
+187. SISTEMA DE MIGRACIÓN
+
+Si cambia el formato de guardado:
+
+crear:
+
+SaveMigration.
+
+Versionar saves.
+
+---
+
+188. DEBUG MODE
+
+Mostrar:
+
+FPS.
+
+Memory.
+
+Chunk.
+
+GPS accuracy.
+
+Latitude/longitude solo en debug.
+
+World coordinate.
+
+Party.
+
+Ping.
+
+Connection.
+
+WebRTC state.
+
+Loaded assets.
+
+Dungeon seed.
+
+Encounter seed.
+
+---
+
+189. PRIMER PROTOTIPO
+
+NO comenzar con todo.
+
+Primera versión:
+
+PWA.
+
+Pantalla de carga.
+
+Menú.
+
+Creación de personaje.
+
+Mapa.
+
+Modo mundo real.
+
+Modo libre.
+
+Una Brecha.
+
+Una mazmorra.
+
+Tres monstruos.
+
+Un boss.
+
+Tres habilidades.
+
+Loot.
+
+Nivel.
+
+Guardado.
+
+Dos jugadores locales.
+
+Otro personaje visible.
+
+---
+
+190. SEGUNDA FASE
+
+Agregar:
+
+GPS smoothing.
+
+encounters;
+
+map chunks;
+
+NPC;
+
+misiones;
+
+crafting;
+
+más clases;
+
+más enemigos;
+
+party 4 jugadores.
+
+---
+
+191. TERCERA FASE
+
+Agregar:
+
+cámara;
+
+AR opcional;
+
+world events;
+
+bosses;
+
+facciones;
+
+clanes;
+
+PvP.
+
+---
+
+192. CUARTA FASE
+
+Agregar:
+
+historia larga;
+
+ramificaciones;
+
+mazmorras profundas;
+
+contenido secreto;
+
+eventos dinámicos;
+
+sistema de temporadas.
+
+---
+
+193. FORMULARIO OBLIGATORIO
+
+ANTES DE ESCRIBIR EL CÓDIGO COMPLETO,
+
+hacer un formulario.
+
+NO asumir las respuestas.
+
+Hacer al menos 50 preguntas.
+
+---
+
+194. PREGUNTAS — IDENTIDAD
+
+1. ¿Cuál debe ser el nombre provisional?
+2. ¿Qué estilo visual quieres?
+3. ¿Más realista o más estilizado?
+4. ¿Qué nivel de fantasía oscura?
+5. ¿Qué edad objetivo?
+6. ¿Qué nivel de violencia?
+7. ¿Qué tono narrativo?
+8. ¿Qué tipo de protagonista?
+9. ¿Personaje masculino, femenino o elección?
+10. ¿Cuánto quieres que las decisiones cambien la historia?
+
+---
+
+195. PREGUNTAS — MUNDO REAL
+
+11. ¿Quieres utilizar el mapa real principalmente como mapa o también como zonas jugables?
+12. ¿Qué tamaño de región debería poder descargarse offline?
+13. ¿Debe poder descargarse una ciudad completa?
+14. ¿Debe utilizar GPS durante la aventura?
+15. ¿Qué sucede cuando el GPS no está disponible?
+16. ¿Cuánto debe influir la hora?
+17. ¿Quieres eventos nocturnos?
+18. ¿Quieres que el tipo de zona real influya en los monstruos?
+19. ¿Quieres usar clima real cuando exista conexión?
+20. ¿Quieres que parques, plazas y lugares reales tengan funciones especiales?
+
+---
+
+196. PREGUNTAS — MODO LIBRE
+
+21. ¿Qué nombre debería tener la habilidad universal?
+22. ¿Debe desbloquearse al principio o mediante historia?
+23. ¿Debe ser limitada?
+24. ¿Debe consumir energía?
+25. ¿Debe permitir caminar sin límite?
+26. ¿Debe tener zonas exclusivas?
+27. ¿Debe tener mapa propio?
+28. ¿Debe permitir jugar todas las mazmorras?
+29. ¿Debe permitir obtener todo el loot?
+30. ¿Debe tener recompensas diferentes a las del mundo real?
+
+---
+
+197. PREGUNTAS — COMBATE
+
+31. ¿Quieres combate muy rápido o moderado?
+32. ¿Cuántas habilidades visibles simultáneamente?
+33. ¿Quieres apuntado automático?
+34. ¿Quieres esquiva manual?
+35. ¿Quieres defensa?
+36. ¿Quieres combos?
+37. ¿Quieres ataques definitivos?
+38. ¿Quieres estados elementales?
+39. ¿Quieres daño crítico?
+40. ¿Quieres enemigos que aprendan los patrones?
+
+---
+
+198. PREGUNTAS — MAZMORRAS
+
+41. ¿Cuántos jugadores máximos por mazmorra?
+42. ¿Quieres mazmorras cortas o largas?
+43. ¿Quieres pisos infinitos?
+44. ¿Quieres checkpoints?
+45. ¿Quieres bosses con varias fases?
+46. ¿Quieres habitaciones secretas?
+47. ¿Quieres puzzles?
+48. ¿Quieres trampas?
+49. ¿Quieres mazmorras que evolucionen?
+50. ¿Quieres mazmorras exclusivas del mundo real?
+
+---
+
+199. PREGUNTAS — MULTIJUGADOR
+
+51. ¿2, 3 o 4 jugadores?
+52. ¿El otro personaje debe verse siempre?
+53. ¿Quieres chat?
+54. ¿Quieres emojis/reacciones?
+55. ¿Quieres revivir?
+56. ¿Quieres compartir loot?
+57. ¿Quieres comercio?
+58. ¿Quieres duelos?
+59. ¿Quieres 2v2?
+60. ¿Quieres Dungeon Race?
+
+---
+
+200. PREGUNTAS — WI-FI LOCAL
+
+61. ¿Quieres conexión completamente sin Internet?
+62. ¿Aceptas usar QR para la negociación inicial?
+63. ¿Quieres un código de sala?
+64. ¿Quieres que el host pueda expulsar jugadores?
+65. ¿Quieres migración del host?
+66. ¿Quieres reconexión?
+67. ¿Quieres que la party pueda cambiar entre mundo real y modo libre?
+68. ¿Quieres que dos jugadores físicamente separados puedan reunirse en modo libre?
+69. ¿Quieres que jugadores físicamente cercanos aparezcan en el mundo real?
+70. ¿Qué distancia máxima de visualización entre jugadores quieres?
+
+---
+
+201. PREGUNTAS — PROGRESIÓN
+
+71. ¿Nivel realmente infinito o número máximo enorme?
+72. ¿Quieres clases evolutivas?
+73. ¿Multiclase?
+74. ¿Árbol de habilidades?
+75. ¿Runas?
+76. ¿Crafting?
+77. ¿Artefactos?
+78. ¿Títulos?
+79. ¿Maestría?
+80. ¿Transformaciones?
+
+---
+
+202. PREGUNTAS — HISTORIA
+
+81. ¿Quieres una historia principal extremadamente larga?
+82. ¿Quieres capítulos?
+83. ¿Quieres decisiones permanentes?
+84. ¿Quieres finales diferentes?
+85. ¿Quieres NPC que puedan morir?
+86. ¿Quieres personajes recurrentes?
+87. ¿Quieres rivales?
+88. ¿Quieres secretos?
+89. ¿Quieres lore ambiental?
+90. ¿Quieres que la historia se expanda indefinidamente?
+
+---
+
+203. PREGUNTAS — VISUAL
+
+91. ¿Qué colores principales?
+92. ¿Qué estilo de paneles?
+93. ¿Qué tipo de iconos?
+94. ¿Qué tipo de retratos?
+95. ¿Quieres efectos luminosos?
+96. ¿Quieres animaciones de habilidades?
+97. ¿Quieres ilustraciones de bosses?
+98. ¿Quieres efectos tipo novela visual?
+99. ¿Quieres cámara durante combate?
+100. ¿Quieres escenas especiales para bosses?
+
+---
+
+204. PREGUNTAS — OFFLINE
+
+101. ¿Qué porcentaje del juego debe funcionar sin Internet?
+102. ¿Quieres descargar el juego completo inicialmente?
+103. ¿Quieres paquetes de regiones?
+104. ¿Quieres guardar todo localmente?
+105. ¿Quieres exportar backups?
+106. ¿Quieres importar partidas?
+107. ¿Quieres sincronización cloud opcional?
+108. ¿Quieres iniciar sin cuenta?
+
+---
+
+205. PREGUNTAS — DISPOSITIVOS
+
+109. ¿Android mínimo?
+110. ¿iPhone mínimo?
+111. ¿Quieres compatibilidad con teléfonos de gama baja?
+112. ¿Quieres objetivo de 60 FPS?
+113. ¿Aceptas 30 FPS en gama baja?
+114. ¿Quieres modo ahorro de batería?
+115. ¿Quieres vibración?
+116. ¿Quieres audio espacial?
+
+---
+
+206. PREGUNTAS — MONETIZACIÓN
+
+117. ¿Completamente gratuito?
+118. ¿Publicidad?
+119. ¿Compras?
+120. ¿Cosméticos?
+121. ¿Sin pay-to-win?
+122. ¿Contenido premium?
+123. ¿Donaciones?
+124. ¿Nada de monetización?
+
+---
+
+207. REGLA FINAL DEL CUESTIONARIO
+
+NO desarrollar la arquitectura final hasta analizar las respuestas.
+
+Después de responder:
+
+1. detectar contradicciones;
+2. agrupar decisiones;
+3. producir GDD;
+4. producir arquitectura técnica;
+5. producir modelo de datos;
+6. producir flujo de pantallas;
+7. producir sistema de networking;
+8. producir sistema de mapa;
+9. producir sistema offline;
+10. producir roadmap.
+
+---
+
+208. GDD FINAL
+
+El documento final debe describir:
+
+LORE.
+
+GAMEPLAY.
+
+MAPA.
+
+MUNDO REAL.
+
+MODO LIBRE.
+
+COMBATE.
+
+MAZMORRAS.
+
+CLASES.
+
+HABILIDADES.
+
+ITEMS.
+
+LOOT.
+
+CRAFTING.
+
+NARRATIVA.
+
+NPC.
+
+MULTIJUGADOR.
+
+PvP.
+
+OFFLINE.
+
+GPS.
+
+CÁMARA.
+
+AR.
+
+PWA.
+
+PERFORMANCE.
+
+---
+
+209. ARQUITECTURA FINAL
+
+Crear una arquitectura modular que permita sustituir sistemas sin reescribir todo el juego.
+
+Ejemplo:
+
+GeoProvider
+
+puede cambiarse.
+
+MapProvider
+
+puede cambiarse.
+
+NetworkProvider
+
+puede cambiarse.
+
+CombatProvider
+
+puede cambiarse.
+
+NarrativeProvider
+
+puede cambiarse.
+
+---
+
+210. REGLA DE FUTURO
+
+Nunca cerrar el diseño de manera que después sea imposible agregar:
+
+online;
+
+nuevos mapas;
+
+nuevas regiones;
+
+nuevas clases;
+
+nuevas mazmorras;
+
+nuevos bosses;
+
+nuevos eventos;
+
+nuevas temporadas.
+
+---
+
+211. OBJETIVO DEFINITIVO
+
+El juego debe poder describirse así:
+
+"Un RPG de fantasía oscura donde el mundo real es la puerta de entrada a un universo de Brechas y mazmorras, pero donde cada aventurero también puede proyectarse dentro de ese mundo desde cualquier lugar."
+
+El jugador puede:
+
+explorar su ciudad;
+
+encontrar Brechas;
+
+ver criaturas;
+
+usar la cámara;
+
+entrar en mazmorras;
+
+subir de nivel;
+
+crear builds;
+
+jugar offline;
+
+activar la Proyección;
+
+explorar virtualmente;
+
+formar una party;
+
+ver a sus amigos físicamente dentro del mismo mundo;
+
+jugar cooperativamente;
+
+combatir contra ellos;
+
+competir en arenas;
+
+y descubrir una historia que continúa mucho más allá de cualquier nivel concreto.
+
+FIN DEL MEGA PROMPT
