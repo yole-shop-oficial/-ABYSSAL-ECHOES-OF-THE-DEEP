@@ -111,6 +111,7 @@ export class Game {
     this.accumulatedMove = 0;
     this.playerMesh.visible = true;
     // Fase 2 rediseño: luz para que no sea negro total + mensaje inicial
+    const THREE = window.THREE || globalThis.THREE;
     const amb = new THREE.AmbientLight(0x223344, 0.8);
     this.render.scene.add(amb);
     const dir = new THREE.DirectionalLight(0x4aa8ff, 1.0);
