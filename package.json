@@ -1,0 +1,13 @@
+{
+  "name": "abyssal-echoes-of-the-deep",
+  "version": "0.1.0",
+  "private": true,
+  "description": "RPG de fantasía oscura - PWA offline-first (estático, sin build)",
+  "scripts": {
+    "serve": "python3 -m http.server 8090",
+    "start": "npx serve ."
+  },
+  "engines": {
+    "node": ">=16"
+  }
+}
