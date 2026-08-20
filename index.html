@@ -13,6 +13,16 @@
 </head>
 <body>
   <div id="app"></div>
+  <!-- Carga cinematográfica Fase 2 -->
+  <div id="load-screen" style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:9999;background:radial-gradient(circle at 50% 50%,#1a0b2e 0%,#030814 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;color:#d7e6ff;font-family:system-ui,sans-serif;text-align:center;transition:opacity 1.5s ease;">
+    <h1 style="font-size:clamp(2rem,6vw,5rem);letter-spacing:0.35em;text-transform:uppercase;margin:0;color:#d7e6ff;text-shadow:0 0 60px #4aa8ff,0 0 120px #9a5cff;animation:fadeIn 2s ease;">Abyssal Echoes</h1>
+    <div style="width:min(320px,80vw);height:6px;background:linear-gradient(90deg,#4aa8ff,#9a5cff,#39e6c8);margin:24px 0 12px;border-radius:3px;animation:pulse 2s infinite ease-in-out;"></div>
+    <p style="font-size:0.9rem;opacity:0.7;color:#6b86ab;margin:0;">Toca o arrastra para moverte libremente</p>
+  </div>
+  <style>
+    @keyframes fadeIn { from { opacity: 0; transform: scale(0.98); } to { opacity: 1; transform: scale(1); } }
+    @keyframes pulse { 0%, 100% { transform: scaleX(1); opacity: 0.8; } 50% { transform: scaleX(1.06); opacity: 1; } }
+  </style>
   <!-- Three.js (vendored locally for offline-first) -->
   <script src="assets/vendor/three.min.js"></script>
   <script type="module" src="src/main.js"></script>

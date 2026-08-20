@@ -99,6 +99,7 @@ export class Game {
 
   // ---------- WORLD MODES ----------
   startFreeMode() {
+    const ld = document.getElementById("load-screen"); if (ld) { ld.style.opacity = "0"; setTimeout(() => ld.remove(), 1500); }
     this.state = STATES.FREE_MODE;
     this.player.mode = 'free';
     this.map = new MapModel(this.freeSeed);
@@ -319,3 +320,4 @@ export class Game {
 
   save() { saveGame(this.player); toast('💾 Partida guardada'); }
 }
+// Fase 2: ocultar carga cuando arranque modo libre
