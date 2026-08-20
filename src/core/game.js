@@ -110,6 +110,13 @@ export class Game {
     this.movementDistance = 0;
     this.accumulatedMove = 0;
     this.playerMesh.visible = true;
+    // Fase 2 rediseño: luz para que no sea negro total + mensaje inicial
+    const amb = new THREE.AmbientLight(0x223344, 0.8);
+    this.render.scene.add(amb);
+    const dir = new THREE.DirectionalLight(0x4aa8ff, 1.0);
+    dir.position.set(10, 20, 10);
+    this.render.scene.add(dir);
+    this.render.setClearColor(0x030814);
     worldUI.screenFreeMode(this);
     toast('🌀 Proyección activa. Explora el Reino de las Brechas.');
   }
