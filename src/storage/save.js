@@ -4,7 +4,7 @@ import { Player } from '../player/player.js';
 
 export function saveGame(player) {
   try {
-    const payload = { version: GAME.VERSION, savedAt: Date.now(), player: player.toJSON() };
+    const payload = { version: GAME.VERSION, savedAt: Date.now(), player: player.toJSON(), quests: (player && player.quests) ? player.quests : [] };
     localStorage.setItem(GAME.SAVE_KEY, JSON.stringify(payload));
     return true;
   } catch (e) {

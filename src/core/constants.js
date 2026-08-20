@@ -2,7 +2,7 @@
 export const GAME = {
   NAME: 'Abyssal Echoes of the Deep',
   SHORT: 'ABYSSAL',
-  VERSION: '0.1.0',
+  VERSION: '2.0.0', // Fase 2: save v2 con quests + crafting
   SAVE_KEY: 'abyssal_save_v1',
   THEME: {
     bg: '#05080f',

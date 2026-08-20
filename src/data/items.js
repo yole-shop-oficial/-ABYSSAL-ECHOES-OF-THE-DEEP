@@ -23,3 +23,10 @@ export const AFFIXES = [
 export const CONSUMABLES = {
   pocion: { heal: 40, name: 'Poción de Vida' }
 };
+
+// Fase 2: Materiales de crafting
+export const CRAFT_MATERIALS = [
+  { id: 'iron_shard', name: 'Fragmento de Hierro', type: 'material', rarity: 'common' },
+  { id: 'abyssal_essence', name: 'Esencia Abisal', type: 'material', rarity: 'rare' },
+  { id: 'crystal_soul', name: 'Cristal del Alma', type: 'material', rarity: 'epic' }
+];

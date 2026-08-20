@@ -140,3 +140,4 @@ export function drawQR(canvas, text) {
     }
   }
 }
+export function syncState(roomId, state) { console.log('Fase 2 sync', roomId, state); return true; }
