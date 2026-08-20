@@ -47,7 +47,8 @@ export class Game {
     this.render.scene.add(this.enemyGroup);
     this.render.scene.add(this.playerMesh);
     bus.on('combat:update', (s) => worldUI.updateCombatHUD(this, s));
-    this.showLoading(() => this.showMainMenu());
+    // Fase 2 redesign: carga rápida + modo libre directo (sin menú de modos ni carga doble)
+    setTimeout(() => this.startFreeMode(), 2200);
     this._loop();
   }
 
