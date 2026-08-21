@@ -28,7 +28,7 @@ export class CharacterCreateScene extends Phaser.Scene {
 
   _drawBg(w, h) {
     const bg = this.add.graphics();
-    bg.fillGradientStyle(0x040812, 0x040812, 0x060b1a, 0x060b1a, 1);
+    bg.fillStyle(0x040812, 1);
     bg.fillRect(0, 0, w, h);
 
     // Líneas decorativas
@@ -372,7 +372,7 @@ export class CharacterCreateScene extends Phaser.Scene {
     const by = h - 72;
     const btnW = Math.min(260, w * 0.72);
     const bg = this.add.graphics();
-    bg.fillGradientStyle(0x7b2fff, 0x00c8ff, 0x7b2fff, 0x00c8ff, 0.95);
+    bg.fillStyle(0x0d1035, 0.95);
     bg.fillRoundedRect(w / 2 - btnW / 2, by, btnW, 48, 10);
 
     this.add.text(w / 2, by + 24, label, {

@@ -134,7 +134,7 @@ export class PrologueScene extends Phaser.Scene {
   _setBg(bgKey, w, h) {
     const [c1, c2] = BG_COLORS[bgKey] || [0x040812, 0x070d22];
     this.bgGraphic.clear();
-    this.bgGraphic.fillGradientStyle(c1, c1, c2, c2, 1);
+    this.bgGraphic.fillStyle(c1, 1);
     this.bgGraphic.fillRect(0, 0, w, h);
 
     // Partícula/efecto según escena

@@ -54,7 +54,7 @@ export class CombatScene extends Phaser.Scene {
 
   _buildBg(w, h) {
     const bg = this.add.graphics();
-    bg.fillGradientStyle(0x04060e, 0x04060e, 0x080414, 0x080414, 1);
+    bg.fillStyle(0x04060e, 1);
     bg.fillRect(0, 0, w, h);
 
     // Grid tenue
@@ -433,7 +433,7 @@ export class CombatScene extends Phaser.Scene {
 
       const continueZone = this.add.zone(w / 2, h * 0.75, 200, 50).setInteractive({ useHandCursor: true });
       const bg2 = this.add.graphics();
-      bg2.fillGradientStyle(0x7b2fff, 0x00c8ff, 0x7b2fff, 0x00c8ff, 0.9);
+      bg2.fillStyle(0x0d1035, 0.9);
       bg2.fillRoundedRect(w / 2 - 100, h * 0.75 - 25, 200, 50, 10);
       this.add.text(w / 2, h * 0.75, 'CONTINUAR', {
         fontFamily: 'Segoe UI, system-ui, sans-serif', fontSize: '14px', fontStyle: 'bold',

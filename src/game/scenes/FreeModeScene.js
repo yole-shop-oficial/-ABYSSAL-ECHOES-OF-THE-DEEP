@@ -129,10 +129,10 @@ export class FreeModeScene extends Phaser.Scene {
     switch (type) {
       case 'rift':
         g.lineStyle(2, col, 0.8);
-        g.beginPath();
-        g.moveTo(x - 14, y); g.quadraticBezierTo(x - 4, y - 12, x, y);
-        g.quadraticBezierTo(x + 4, y + 12, x + 14, y);
-        g.strokePath();
+        g.lineBetween(x - 14, y, x - 5, y - 10);
+        g.lineBetween(x - 5, y - 10, x, y);
+        g.lineBetween(x, y, x + 5, y + 10);
+        g.lineBetween(x + 5, y + 10, x + 14, y);
         g.fillStyle(col, 0.7); g.fillCircle(x, y, 3);
         break;
       case 'dungeon':
@@ -145,7 +145,7 @@ export class FreeModeScene extends Phaser.Scene {
         g.fillStyle(col, 0.5); g.fillEllipse(x, y + 4, 14, 12);
         break;
       case 'resource':
-        g.fillStyle(col, 0.7); g.fillStar(x, y, 5, 6, 12);
+        g.fillStyle(col, 0.7); g.fillTriangle(x, y-10, x-8, y+5, x+8, y+5);
         break;
       case 'mystery':
         g.fillStyle(col, 0.15); g.fillCircle(x, y, 14);

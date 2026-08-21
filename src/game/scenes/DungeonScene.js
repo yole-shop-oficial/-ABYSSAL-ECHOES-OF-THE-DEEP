@@ -140,7 +140,7 @@ export class DungeonScene extends Phaser.Scene {
     const roomBg = this.add.graphics();
     const bgColors = { combat: [0x08040c, 0x120418], rest: [0x040c08, 0x081408], treasure: [0x0c0a04, 0x181408], boss: [0x0a0418, 0x180424] };
     const [c1, c2] = bgColors[room.type] || [0x04080c, 0x08101c];
-    roomBg.fillGradientStyle(c1, c1, c2, c2, 1);
+    roomBg.fillStyle(c1, 1);
     roomBg.fillRect(0, 64, w, h - 64 - 152);
 
     // Tiles de suelo
@@ -322,7 +322,7 @@ export class DungeonScene extends Phaser.Scene {
     const bossHpW = 180, bossHpH = 8;
     const hpG = this.add.graphics();
     hpG.fillStyle(0x1a0408, 1); hpG.fillRoundedRect(x - bossHpW / 2, y + 50, bossHpW, bossHpH, 3);
-    hpG.fillGradientStyle(0xff3a6e, 0x7b2fff, 0xff3a6e, 0x7b2fff, 0.9);
+    hpG.fillStyle(0xff3a6e, 0.9);
     hpG.fillRoundedRect(x - bossHpW / 2, y + 50, bossHpW, bossHpH, 3);
 
     this.add.text(x, y + 68, boss.name?.toUpperCase() || 'JEFE ABISAL', {

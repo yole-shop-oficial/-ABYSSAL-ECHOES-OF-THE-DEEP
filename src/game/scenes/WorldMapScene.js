@@ -57,7 +57,7 @@ export class WorldMapScene extends Phaser.Scene {
 
     // Fondo de mapa
     this.mapBg = this.add.graphics();
-    this.mapBg.fillGradientStyle(c1, c1, c2, c2, 1);
+    this.mapBg.fillStyle(c1, 1);
     this.mapBg.fillRect(0, 0, w, h);
 
     // Tiles / cuadrícula de mapa
@@ -168,26 +168,18 @@ export class WorldMapScene extends Phaser.Scene {
   }
 
   _drawRiftIcon(g, x, y, size, color) {
+    // Brecha con lineBetween (compatible Phaser 3 Graphics)
     g.lineStyle(2, color, 0.9);
-    g.beginPath();
-    g.moveTo(x - size, y);
-    // Curva superior
-    const mid1x = x - size * 0.3, mid1y = y - size * 0.8;
-    const mid2x = x + size * 0.3, mid2y = y + size * 0.8;
-    g.lineTo(mid1x, mid1y);
-    g.lineTo(x, y);
-    g.lineTo(mid2x, mid2y);
-    g.lineTo(x + size, y);
-    g.strokePath();
-    g.lineStyle(1, color, 0.4);
-    g.beginPath();
-    g.moveTo(x - size, y);
-    g.lineTo(x - size * 0.3, y + size * 0.8);
-    g.lineTo(x, y);
-    g.lineTo(x + size * 0.3, y - size * 0.8);
-    g.lineTo(x + size, y);
-    g.strokePath();
-    g.fillStyle(color, 0.7);
+    g.lineBetween(x - size, y, x - size * 0.3, y - size * 0.8);
+    g.lineBetween(x - size * 0.3, y - size * 0.8, x, y);
+    g.lineBetween(x, y, x + size * 0.3, y + size * 0.8);
+    g.lineBetween(x + size * 0.3, y + size * 0.8, x + size, y);
+    g.lineStyle(1, color, 0.35);
+    g.lineBetween(x - size, y, x - size * 0.3, y + size * 0.8);
+    g.lineBetween(x - size * 0.3, y + size * 0.8, x, y);
+    g.lineBetween(x, y, x + size * 0.3, y - size * 0.8);
+    g.lineBetween(x + size * 0.3, y - size * 0.8, x + size, y);
+    g.fillStyle(color, 0.8);
     g.fillCircle(x, y, 3);
   }
 
@@ -292,8 +284,8 @@ export class WorldMapScene extends Phaser.Scene {
         break;
       case 'story':
         g.fillStyle(color, alpha * 0.3);
-        g.fillStar(x, y, 5, 4, 8);
-        g.strokePath();
+        g.fillTriangle(x, y-9, x-7, y+5, x+7, y+5);
+
         break;
       case 'free':
         g.strokeCircle(x, y, 7);
@@ -373,7 +365,7 @@ export class WorldMapScene extends Phaser.Scene {
 
     // Botón entrar
     const ebtn = this.add.graphics();
-    ebtn.fillGradientStyle(0x7b2fff, 0x00c8ff, 0x7b2fff, 0x00c8ff, 1);
+    ebtn.fillStyle(0x0d1035, 0.95);
     ebtn.fillRoundedRect(mx + 20, my + mh - 60, mw - 40, 40, 8);
     this.add.text(w / 2, my + mh - 40, 'ENTRAR A LA BRECHA', {
       fontFamily: 'Segoe UI, system-ui, sans-serif', fontSize: '12px', fontStyle: 'bold',
