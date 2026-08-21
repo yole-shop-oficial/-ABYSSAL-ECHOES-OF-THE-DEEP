@@ -364,7 +364,8 @@ export class DungeonScene extends Phaser.Scene {
         this.cameras.main.once('camerafadeoutcomplete', () => this.scene.start('CombatScene'));
         break;
       case 'inv':
-        this.scene.launch('InventoryScene');
+        this.cameras.main.fadeOut(250, 4, 8, 18);
+        this.cameras.main.once('camerafadeoutcomplete', () => this.scene.start('InventoryScene'));
         break;
       case 'exit':
         this.cameras.main.fadeOut(300, 4, 8, 18);
