@@ -462,11 +462,21 @@ export class CharacterCreateScene extends Phaser.Scene {
   // ─── CREAR PERSONAJE Y ARRANCAR ─────────────────────────────────
   _createCharacter(w, h) {
     const cls = this.classesData[this.selectedClass] || {};
+    const skillsData = this.registry.get('skillsData') || [];
+
+    // Asignar habilidades iniciales según la clase (máximo 6)
+    const startSkills = skillsData
+      .filter(s => s.class === (cls.id || 'guerrero'))
+      .slice(0, 6)
+      .map(s => s.id);
+
     const player = new PlayerState({
       name: this.playerName || 'Resonador',
       classId: cls.id || 'guerrero',
       gender: this.selectedGender,
-      baseStats: { ...(cls.baseStats || {}) }
+      baseStats: { ...(cls.baseStats || {}) },
+      activeSkills: startSkills,
+      unlockedSkills: startSkills
     });
 
     this.registry.set('player', player);

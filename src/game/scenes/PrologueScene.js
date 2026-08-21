@@ -207,6 +207,7 @@ export class PrologueScene extends Phaser.Scene {
 
     choices.forEach((c, i) => {
       const cy = startY + i * 52;
+
       const bg = this.add.graphics();
       bg.fillStyle(0x0a1428, 0.95);
       bg.fillRoundedRect(16, cy, choiceW, 44, 8);
@@ -218,14 +219,22 @@ export class PrologueScene extends Phaser.Scene {
         color: '#c8d8f0', wordWrap: { width: choiceW - 24 }, align: 'center', resolution: 2
       }).setOrigin(0.5);
 
+      // Zona interactiva DENTRO del container para que removeAll(true) la destruya
       const zone = this.add.zone(w / 2, cy + 22, choiceW, 44).setInteractive({ useHandCursor: true });
-      zone.on('pointerover', () => { bg.clear(); bg.fillStyle(0x0d1f3c, 0.98); bg.fillRoundedRect(16, cy, choiceW, 44, 8); bg.lineStyle(1.5, 0x00c8ff, 1); bg.strokeRoundedRect(16, cy, choiceW, 44, 8); });
-      zone.on('pointerout', () => { bg.clear(); bg.fillStyle(0x0a1428, 0.95); bg.fillRoundedRect(16, cy, choiceW, 44, 8); bg.lineStyle(1, 0x7b2fff, 0.5); bg.strokeRoundedRect(16, cy, choiceW, 44, 8); });
+      zone.on('pointerover', () => {
+        bg.clear(); bg.fillStyle(0x0d1f3c, 0.98); bg.fillRoundedRect(16, cy, choiceW, 44, 8);
+        bg.lineStyle(1.5, 0x00c8ff, 1); bg.strokeRoundedRect(16, cy, choiceW, 44, 8);
+      });
+      zone.on('pointerout', () => {
+        bg.clear(); bg.fillStyle(0x0a1428, 0.95); bg.fillRoundedRect(16, cy, choiceW, 44, 8);
+        bg.lineStyle(1, 0x7b2fff, 0.5); bg.strokeRoundedRect(16, cy, choiceW, 44, 8);
+      });
       zone.on('pointerdown', () => {
         if (navigator.vibrate) navigator.vibrate(30);
         this._onChoiceSelected(c);
       });
 
+      // Añadir TODO al container — bg, txt, zone — para que removeAll(true) los destruya todos
       this.choicesContainer.add([bg, txt, zone]);
     });
   }

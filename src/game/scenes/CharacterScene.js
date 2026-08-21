@@ -12,6 +12,10 @@ export class CharacterScene extends Phaser.Scene {
     this.cameras.main.setBackgroundColor('#040812');
     this.cameras.main.fadeIn(300, 4, 8, 18);
     this.player = this.registry.get('player');
+    // Garantizar métodos aunque venga como plain object
+    if (this.player && typeof this.player.getEffectiveStats !== 'function') {
+      this.player.getEffectiveStats = function() { return { ...this.baseStats }; };
+    }
     AbyssalUI.drawBg(this, w, h);
     AbyssalUI.drawTopBar(this, w, 'RESONADOR', 'PERFIL Y PROGRESIÓN');
     this._drawCharInfo(w, h);

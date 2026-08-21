@@ -12,6 +12,9 @@ export class InventoryScene extends Phaser.Scene {
     this.cameras.main.setBackgroundColor('#040812');
     this.cameras.main.fadeIn(300, 4, 8, 18);
     this.player = this.registry.get('player');
+    if (this.player && typeof this.player.getEffectiveStats !== 'function') {
+      this.player.getEffectiveStats = function() { return { ...this.baseStats }; };
+    }
     AbyssalUI.drawBg(this, w, h);
     AbyssalUI.drawTopBar(this, w, 'INVENTARIO', 'EQUIPO Y OBJETOS');
     this._drawEquipSlots(w, h);
