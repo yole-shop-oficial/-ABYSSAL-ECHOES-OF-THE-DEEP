@@ -1,0 +1,111 @@
+{
+  "prologue": {
+    "id": "prologue",
+    "title": "El Primer Eco",
+    "chapters": [
+      {
+        "id": "p_01",
+        "title": "La Noche que el Mundo Cambió",
+        "scenes": [
+          {
+            "id": "s_001",
+            "type": "narration",
+            "text": "No hubo advertencia. No hubo señal. El cielo simplemente se abrió.",
+            "mood": "dark",
+            "bg": "bg_city_night"
+          },
+          {
+            "id": "s_002",
+            "type": "narration",
+            "text": "En cuestión de horas, las grietas comenzaron a aparecer en cada ciudad del mundo. Las llamaron Brechas. Lo que salió de ellas no tenía nombre.",
+            "mood": "dark",
+            "bg": "bg_rift_opening"
+          },
+          {
+            "id": "s_003",
+            "type": "narration",
+            "text": "Algunos murieron. Otros huyeron. Y un pequeño grupo descubrió algo inesperado: ellos podían resonar con las Brechas. Podían entrar.",
+            "mood": "tense",
+            "bg": "bg_city_night"
+          },
+          {
+            "id": "s_004",
+            "type": "narration",
+            "text": "Los llamaron Los Resonadores. Tú eres uno de ellos.",
+            "mood": "revelation",
+            "bg": "bg_resonator_emblem"
+          },
+          {
+            "id": "s_005",
+            "type": "choice",
+            "text": "¿Recuerdas el momento en que sentiste el Eco por primera vez?",
+            "choices": [
+              { "id": "c_001_a", "text": "Fue en un sueño. Oí algo que me llamaba desde abajo.", "flag": "origin_dream", "effect": "arcane_affinity" },
+              { "id": "c_001_b", "text": "Fue durante el Primer Evento. Lo vi con mis propios ojos.", "flag": "origin_witness", "effect": "perception_bonus" },
+              { "id": "c_001_c", "text": "No lo recuerdo. Solo sé que puedo hacerlo.", "flag": "origin_unknown", "effect": "mystery_path" }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "p_02",
+        "title": "El Reclutamiento",
+        "scenes": [
+          {
+            "id": "s_010",
+            "type": "dialogue",
+            "speaker": "Eira",
+            "speakerRole": "Comandante de los Resonadores",
+            "text": "Llevas días cerca de las Brechas sin morir. Eso no es casualidad. Ven conmigo.",
+            "mood": "neutral",
+            "bg": "bg_command_post"
+          },
+          {
+            "id": "s_011",
+            "type": "dialogue",
+            "speaker": "Eira",
+            "text": "Los Resonadores necesitan gente que pueda entrar y salir. El mundo de fuera está cediendo. Lo que sea que envía estas cosas... está ganando terreno.",
+            "mood": "tense",
+            "bg": "bg_command_post"
+          },
+          {
+            "id": "s_012",
+            "type": "narration",
+            "text": "Ella no te pidió que dijeras sí. Sabía que ya lo habías decidido.",
+            "mood": "dark",
+            "bg": "bg_command_post"
+          }
+        ]
+      }
+    ]
+  },
+  "chapter_01": {
+    "id": "chapter_01",
+    "title": "Capítulo I — Las Raíces del Abismo",
+    "requiredLevel": 1,
+    "requiredFlags": ["origin_chosen"],
+    "chapters": [
+      {
+        "id": "c1_01",
+        "title": "Primera Brecha",
+        "scenes": [
+          {
+            "id": "c1_s_001",
+            "type": "narration",
+            "text": "Tu primera Brecha. El aire dentro huele a estático y tierra mojada. Las paredes de piedra pulsan con luz que no debería existir.",
+            "mood": "tense",
+            "bg": "bg_dungeon_entry"
+          },
+          {
+            "id": "c1_s_002",
+            "type": "event",
+            "eventType": "combat_intro",
+            "enemy": "sombra_fracturada",
+            "text": "Algo se mueve en la oscuridad. No espera.",
+            "mood": "combat"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,1615 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+<title>ABYSSAL ECHOES OF THE DEEP — Formulario GDD Oficial</title>
+<style>
+  :root {
+    --bg-deep: #040812;
+    --bg-card: #080f20;
+    --bg-card2: #0b1428;
+    --accent: #00c8ff;
+    --accent2: #7b2fff;
+    --accent3: #ff3a6e;
+    --accent4: #00ffb2;
+    --gold: #ffd166;
+    --text: #c8d8f0;
+    --text-dim: #5a6a85;
+    --border: rgba(0,200,255,0.18);
+    --glow: 0 0 18px rgba(0,200,255,0.25);
+    --glow2: 0 0 18px rgba(123,47,255,0.3);
+    --radius: 14px;
+    --font: 'Segoe UI', system-ui, sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background: var(--bg-deep);
+    color: var(--text);
+    font-family: var(--font);
+    min-height: 100vh;
+    padding-bottom: 80px;
+  }
+
+  /* ── HEADER ── */
+  .hero{
+    background: linear-gradient(135deg, #040812 0%, #0a0d25 40%, #060b18 100%);
+    border-bottom: 1px solid var(--border);
+    padding: 48px 20px 36px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before{
+    content:'';
+    position:absolute;inset:0;
+    background: radial-gradient(ellipse at 50% 0%, rgba(123,47,255,0.18) 0%, transparent 70%);
+    pointer-events:none;
+  }
+  .hero-logo{
+    display:flex; align-items:center; justify-content:center; gap:14px;
+    margin-bottom:14px;
+  }
+  .hero-icon{ width:54px; height:54px; }
+  .hero-title{
+    font-size: clamp(1.5rem, 5vw, 2.8rem);
+    font-weight: 900;
+    letter-spacing: .04em;
+    background: linear-gradient(90deg, var(--accent), var(--accent2), var(--accent3));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1.1;
+  }
+  .hero-sub{
+    color: var(--accent);
+    font-size: .9rem;
+    letter-spacing: .25em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    opacity:.8;
+  }
+  .hero-desc{
+    color: var(--text-dim);
+    font-size: .95rem;
+    max-width: 640px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+  .badge-row{
+    display:flex; flex-wrap:wrap; gap:8px; justify-content:center;
+    margin-top:18px;
+  }
+  .badge{
+    background: rgba(0,200,255,0.08);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    padding: 4px 14px;
+    font-size: .75rem;
+    color: var(--accent);
+    letter-spacing:.1em;
+  }
+
+  /* ── PROGRESS BAR ── */
+  .progress-wrap{
+    position: sticky; top:0; z-index:100;
+    background: rgba(4,8,18,0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 10px 20px;
+    display:flex; align-items:center; gap:12px;
+  }
+  .progress-bar{
+    flex:1; height:5px;
+    background: rgba(255,255,255,0.06);
+    border-radius:100px; overflow:hidden;
+  }
+  .progress-fill{
+    height:100%;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    border-radius:100px;
+    width:0%;
+    transition: width .4s ease;
+  }
+  .progress-label{
+    font-size:.8rem; color:var(--accent); white-space:nowrap; min-width:80px; text-align:right;
+  }
+
+  /* ── LAYOUT ── */
+  .container{ max-width: 860px; margin: 0 auto; padding: 0 16px; }
+
+  /* ── SECTION ── */
+  .section{
+    margin-top: 36px;
+  }
+  .section-header{
+    display:flex; align-items:center; gap:12px;
+    margin-bottom: 18px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border);
+  }
+  .section-icon{ width:32px; height:32px; flex-shrink:0; }
+  .section-title{
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing:.08em;
+    text-transform: uppercase;
+  }
+  .section-num{
+    font-size:.75rem; color:var(--text-dim);
+    margin-left:auto;
+    white-space:nowrap;
+  }
+
+  /* ── QUESTION CARD ── */
+  .q-card{
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px;
+    margin-bottom: 14px;
+    transition: border-color .3s, box-shadow .3s;
+  }
+  .q-card:focus-within{
+    border-color: var(--accent);
+    box-shadow: var(--glow);
+  }
+  .q-card.answered{
+    border-color: rgba(0,255,178,0.3);
+  }
+  .q-header{
+    display:flex; align-items:flex-start; gap:10px;
+    margin-bottom:12px;
+  }
+  .q-num{
+    background: linear-gradient(135deg, var(--accent2), var(--accent));
+    color:#fff;
+    font-size:.7rem; font-weight:800;
+    width:26px; height:26px;
+    border-radius:6px;
+    display:flex; align-items:center; justify-content:center;
+    flex-shrink:0; margin-top:1px;
+  }
+  .q-text{
+    font-size:.97rem; font-weight:600;
+    color: var(--text);
+    line-height:1.45;
+    flex:1;
+  }
+  .q-hint{
+    font-size:.78rem; color:var(--text-dim);
+    margin-top:4px; margin-left:36px;
+    line-height:1.4;
+  }
+  .q-check{ margin-left:auto; flex-shrink:0; opacity:0; transition:opacity .2s; }
+  .q-card.answered .q-check{ opacity:1; }
+
+  /* ── OPTIONS CHIPS ── */
+  .chips{ display:flex; flex-wrap:wrap; gap:8px; margin:10px 0 8px 36px; }
+  .chip{
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    padding: 6px 14px;
+    font-size:.82rem; color:var(--text-dim);
+    cursor:pointer;
+    transition: all .2s;
+    user-select:none;
+    background: transparent;
+  }
+  .chip:hover{ border-color:var(--accent); color:var(--accent); background:rgba(0,200,255,0.06); }
+  .chip.selected{ border-color:var(--accent); color:var(--bg-deep); background:var(--accent); font-weight:700; }
+  .chip.selected-multi{ border-color:var(--accent4); color:var(--bg-deep); background:var(--accent4); font-weight:700; }
+  .chip.important{ border-color:var(--accent3); }
+  .chip.important:hover{ background:rgba(255,58,110,0.1); color:var(--accent3); }
+
+  /* ── INPUTS ── */
+  .q-input, .q-textarea, .q-select{
+    width:100%; margin-top:8px; margin-left:0;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: var(--text);
+    font-family: var(--font);
+    font-size:.9rem;
+    padding: 10px 14px;
+    outline:none;
+    transition: border-color .2s, box-shadow .2s;
+    resize:vertical;
+  }
+  .q-input:focus,.q-textarea:focus,.q-select:focus{
+    border-color: var(--accent);
+    box-shadow: var(--glow);
+  }
+  .q-textarea{ min-height:80px; }
+  .q-select option{ background:#080f20; }
+
+  /* slider */
+  .slider-wrap{ margin: 8px 0 4px 36px; display:flex; align-items:center; gap:10px; }
+  .q-slider{
+    flex:1;
+    -webkit-appearance:none;
+    height:5px;
+    border-radius:100px;
+    background: rgba(255,255,255,0.08);
+    outline:none;
+  }
+  .q-slider::-webkit-slider-thumb{
+    -webkit-appearance:none;
+    width:20px; height:20px;
+    border-radius:50%;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    cursor:pointer;
+    box-shadow: var(--glow);
+  }
+  .slider-val{
+    min-width:30px; text-align:center;
+    color:var(--accent); font-weight:700; font-size:.9rem;
+  }
+  .slider-labels{ display:flex; justify-content:space-between; font-size:.7rem; color:var(--text-dim); margin: 0 0 0 36px; }
+
+  /* color pickers */
+  .color-row{ display:flex; flex-wrap:wrap; gap:8px; margin:8px 0 0 36px; }
+  .color-opt{
+    width:36px; height:36px; border-radius:8px;
+    border:2px solid transparent;
+    cursor:pointer; transition:transform .2s,border-color .2s;
+  }
+  .color-opt:hover{ transform:scale(1.15); }
+  .color-opt.selected{ border-color:#fff; transform:scale(1.2); }
+
+  /* ── SUBMIT ── */
+  .submit-section{
+    margin-top:48px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding:30px;
+    text-align:center;
+  }
+  .submit-title{
+    font-size:1.3rem; font-weight:800;
+    background: linear-gradient(90deg, var(--accent4), var(--accent));
+    -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+    margin-bottom:8px;
+  }
+  .submit-desc{ color:var(--text-dim); font-size:.9rem; margin-bottom:22px; line-height:1.5; }
+  .btn-submit{
+    display:inline-flex; align-items:center; gap:10px;
+    background: linear-gradient(135deg, var(--accent2), var(--accent));
+    color:#fff; border:none; border-radius:10px;
+    padding:14px 36px; font-size:1rem; font-weight:800;
+    cursor:pointer; letter-spacing:.05em;
+    transition: transform .2s, box-shadow .2s;
+    box-shadow: var(--glow2);
+  }
+  .btn-submit:hover{ transform:scale(1.04); box-shadow: 0 0 30px rgba(123,47,255,0.5); }
+  .counter-display{
+    margin-top:16px; font-size:.85rem; color:var(--text-dim);
+  }
+  .counter-display span{ color:var(--accent); font-weight:700; }
+
+  /* ── RESULT PANEL ── */
+  .result-panel{
+    display:none;
+    margin-top:24px;
+    background: rgba(0,255,178,0.06);
+    border:1px solid rgba(0,255,178,0.3);
+    border-radius:var(--radius);
+    padding:22px;
+  }
+  .result-panel.show{ display:block; }
+  .result-title{ font-size:1rem; font-weight:700; color:var(--accent4); margin-bottom:10px; }
+  .result-content{
+    font-size:.82rem; color:var(--text);
+    white-space:pre-wrap; line-height:1.7;
+    max-height:500px; overflow-y:auto;
+    scrollbar-width:thin; scrollbar-color:var(--accent) transparent;
+  }
+  .btn-copy{
+    margin-top:12px;
+    background: rgba(0,255,178,0.12);
+    border:1px solid rgba(0,255,178,0.3);
+    border-radius:8px;
+    color:var(--accent4); padding:8px 20px;
+    cursor:pointer; font-size:.85rem; font-weight:700;
+    transition:background .2s;
+  }
+  .btn-copy:hover{ background:rgba(0,255,178,0.2); }
+
+  /* ── SVG ICONS (inline, custom) ── */
+  .icon-abyssal{ display:block; }
+
+  /* ── DIVIDER ── */
+  .divider{
+    height:1px; background:linear-gradient(90deg,transparent,var(--border),transparent);
+    margin:32px 0;
+  }
+
+  /* ── IMPORTANCE INDICATOR ── */
+  .imp-badge{
+    display:inline-block;
+    background: rgba(255,58,110,0.15);
+    border:1px solid rgba(255,58,110,0.3);
+    color:var(--accent3);
+    font-size:.65rem; font-weight:800;
+    padding:2px 8px; border-radius:100px;
+    letter-spacing:.1em;
+    margin-left:8px;
+    vertical-align:middle;
+  }
+
+  @media(max-width:520px){
+    .hero{ padding:32px 14px 24px; }
+    .q-card{ padding:14px; }
+    .chips{ margin-left:0; }
+    .slider-wrap,.slider-labels,.color-row,.q-hint{ margin-left:0; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-logo">
+    <!-- Custom SVG Logo: Abyssal eye/rift -->
+    <svg class="hero-icon" viewBox="0 0 54 54" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <ellipse cx="27" cy="27" rx="26" ry="26" fill="url(#g1)" opacity=".18"/>
+      <ellipse cx="27" cy="27" rx="18" ry="18" fill="url(#g2)" opacity=".2"/>
+      <!-- Rift shape -->
+      <path d="M10 27 Q19 14 27 27 Q35 40 44 27" stroke="url(#g3)" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+      <path d="M10 27 Q19 40 27 27 Q35 14 44 27" stroke="url(#g3)" stroke-width="1.2" fill="none" stroke-linecap="round" opacity=".5"/>
+      <!-- Eye pupil -->
+      <ellipse cx="27" cy="27" rx="5" ry="5" fill="url(#g4)"/>
+      <ellipse cx="27" cy="27" rx="2.5" ry="2.5" fill="#040812"/>
+      <!-- Glow dots -->
+      <circle cx="12" cy="27" r="1.5" fill="#00c8ff" opacity=".7"/>
+      <circle cx="42" cy="27" r="1.5" fill="#7b2fff" opacity=".7"/>
+      <defs>
+        <radialGradient id="g1" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#7b2fff"/><stop offset="100%" stop-color="#00c8ff"/></radialGradient>
+        <radialGradient id="g2" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#00c8ff" stop-opacity=".4"/><stop offset="100%" stop-color="transparent"/></radialGradient>
+        <linearGradient id="g3" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#00c8ff"/><stop offset="50%" stop-color="#7b2fff"/><stop offset="100%" stop-color="#ff3a6e"/></linearGradient>
+        <radialGradient id="g4" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#00c8ff"/><stop offset="100%" stop-color="#7b2fff"/></radialGradient>
+      </defs>
+    </svg>
+    <div>
+      <div class="hero-sub">Formulario de Diseño — GDD Oficial</div>
+      <div class="hero-title">ABYSSAL ECHOES<br/>OF THE DEEP</div>
+    </div>
+  </div>
+  <p class="hero-desc">
+    Antes de escribir una sola línea de código, el equipo de desarrollo necesita respuestas claras. 
+    Este formulario contiene <strong>más de 55 preguntas clave</strong> que definirán la arquitectura, 
+    el diseño visual, la narrativa y los sistemas del juego. Cada respuesta es irremplazable.
+  </p>
+  <div class="badge-row">
+    <span class="badge">2D</span>
+    <span class="badge">RPG OSCURO</span>
+    <span class="badge">PWA</span>
+    <span class="badge">OFFLINE FIRST</span>
+    <span class="badge">ICONOS PROPIOS SVG</span>
+    <span class="badge">SIN EMOJIS</span>
+    <span class="badge">MULTIJUGADOR LOCAL</span>
+    <span class="badge">GPS</span>
+  </div>
+</div>
+
+<!-- PROGRESS BAR -->
+<div class="progress-wrap">
+  <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+    <circle cx="9" cy="9" r="8" stroke="#00c8ff" stroke-width="1.5" opacity=".4"/>
+    <path d="M9 5v4l3 2" stroke="#00c8ff" stroke-width="1.8" stroke-linecap="round"/>
+  </svg>
+  <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+  <div class="progress-label" id="progressLabel">0 / 55</div>
+</div>
+
+<div class="container">
+
+<!-- ═══════════════════════════════════════════
+     BLOQUE 1 — IDENTIDAD Y CONCEPTO GENERAL
+═══════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-header">
+    <svg class="section-icon" viewBox="0 0 32 32" fill="none">
+      <rect x="2" y="2" width="28" height="28" rx="7" fill="url(#si1)" opacity=".15"/>
+      <path d="M16 6 L20 13 L28 14 L22 20 L23.5 28 L16 24.5 L8.5 28 L10 20 L4 14 L12 13 Z" stroke="#ffd166" stroke-width="1.5" fill="rgba(255,209,102,0.12)"/>
+      <defs><linearGradient id="si1" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ffd166"/><stop offset="1" stop-color="#ff3a6e"/></linearGradient></defs>
+    </svg>
+    <div>
+      <div class="section-title">Identidad y Concepto General</div>
+    </div>
+    <div class="section-num">Preguntas 1–10</div>
+  </div>
+
+  <!-- Q1 -->
+  <div class="q-card" id="qc1">
+    <div class="q-header">
+      <div class="q-num">1</div>
+      <div class="q-text">¿El nombre del repositorio "ABYSSAL ECHOES OF THE DEEP" es el nombre definitivo del juego? <span class="imp-badge">CRÍTICO</span></div>
+      <svg class="q-check" width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" fill="rgba(0,255,178,0.2)" stroke="#00ffb2" stroke-width="1.5"/><path d="M6 10.5l3 3 5-6" stroke="#00ffb2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <div class="q-hint">El nombre es la primera impresión del jugador. Define la identidad completa.</div>
+    <div class="chips" data-q="1" data-type="single">
+      <button class="chip" data-val="si_definitivo">Sí, es el nombre definitivo</button>
+      <button class="chip" data-val="es_provisional">Es provisional, acepto sugerencias</button>
+      <button class="chip" data-val="quiero_variantes">Quiero ver variantes antes de decidir</button>
+      <button class="chip" data-val="subcambia">Quiero mantenerlo como subtítulo</button>
+    </div>
+    <input class="q-input" placeholder="Comentario adicional sobre el nombre..." data-q="1-text"/>
+  </div>
+
+  <!-- Q2 -->
+  <div class="q-card" id="qc2">
+    <div class="q-header">
+      <div class="q-num">2</div>
+      <div class="q-text">¿Cuál es el tono visual y narrativo principal del juego? <span class="imp-badge">CRÍTICO</span></div>
+      <svg class="q-check" width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" fill="rgba(0,255,178,0.2)" stroke="#00ffb2" stroke-width="1.5"/><path d="M6 10.5l3 3 5-6" stroke="#00ffb2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <div class="q-hint">Define la atmósfera global: colores, tipografía, narrativa, diseño de monstruos.</div>
+    <div class="chips" data-q="2" data-type="multi">
+      <button class="chip" data-val="oscuro_mistico">Oscuro y místico</button>
+      <button class="chip" data-val="cinematic">Cinematográfico épico</button>
+      <button class="chip" data-val="lovecraftiano">Lovecraftiano / cósmico</button>
+      <button class="chip" data-val="gore_adulto">Gore adulto</button>
+      <button class="chip" data-val="elegante">Elegante y sombrío</button>
+      <button class="chip" data-val="mitologico">Mitológico oscuro</button>
+    </div>
+    <input class="q-input" placeholder="Describe el tono que imaginas..." data-q="2-text"/>
+  </div>
+
+  <!-- Q3 -->
+  <div class="q-card" id="qc3">
+    <div class="q-header">
+      <div class="q-num">3</div>
+      <div class="q-text">¿Qué nivel de violencia y madurez debe tener el juego? <span class="imp-badge">CRÍTICO</span></div>
+      <svg class="q-check" width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" fill="rgba(0,255,178,0.2)" stroke="#00ffb2" stroke-width="1.5"/><path d="M6 10.5l3 3 5-6" stroke="#00ffb2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <div class="q-hint">Determina clasificación de edad, diseño de efectos, sangre, lore.</div>
+    <div class="chips" data-q="3" data-type="single">
+      <button class="chip" data-val="todo_publico">Todo público (sin sangre)</button>
+      <button class="chip" data-val="teen">Teen / Adolescente (sangre mínima)</button>
+      <button class="chip" data-val="m17">Maduro 17+ (sangre estilizada)</button>
+      <button class="chip" data-val="adulto">Adulto (sin censura)</button>
+    </div>
+  </div>
+
+  <!-- Q4 -->
+  <div class="q-card" id="qc4">
+    <div class="q-header">
+      <div class="q-num">4</div>
+      <div class="q-text">¿El personaje del jugador tiene género predefinido o es elegible? <span class="imp-badge">CRÍTICO</span></div>
+      <svg class="q-check" width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" fill="rgba(0,255,178,0.2)" stroke="#00ffb2" stroke-width="1.5"/><path d="M6 10.5l3 3 5-6" stroke="#00ffb2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <div class="q-hint">Afecta sprites 2D, diálogos, pronombres en la narrativa.</div>
+    <div class="chips" data-q="4" data-type="single">
+      <button class="chip" data-val="masculino_fijo">Masculino fijo</button>
+      <button class="chip" data-val="femenino_fijo">Femenino fijo</button>
+      <button class="chip" data-val="eleccion_inicio">El jugador elige al inicio</button>
+      <button class="chip" data-val="sin_genero">Sin género definido (silueta/armadura)</button>
+      <button class="chip" data-val="customizable">Totalmente personalizable</button>
+    </div>
+  </div>
+
+  <!-- Q5 -->
+  <div class="q-card" id="qc5">
+    <div class="q-header">
+      <div class="q-num">5</div>
+      <div class="q-text">¿Qué peso deben tener las decisiones del jugador en la historia? <span class="imp-badge">CRÍTICO</span></div>
+      <svg class="q-check" width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" fill="rgba(0,255,178,0.2)" stroke="#00ffb2" stroke-width="1.5"/><path d="M6 10.5l3 3 5-6" stroke="#00ffb2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <div class="q-hint">Define si hay ramificaciones, finales múltiples, consecuencias permanentes.</div>
+    <div class="chips" data-q="5" data-type="single">
+      <button class="chip" data-val="cosmeticas">Solo cosméticas (diálogos distintos)</button>
+      <button class="chip" data-val="moderado">Moderado (cambian misiones y relaciones)</button>
+      <button class="chip" data-val="significativo">Significativo (muertos, traiciones, rutas)</button>
+      <button class="chip" data-val="total">Total (finales completamente distintos)</button>
+    </div>
+    <textarea class="q-textarea" placeholder="Describe un ejemplo de decisión importante que imaginas..." data-q="5-text"></textarea>
+  </div>
+
+  <!-- Q6 -->
+  <div class="q-card" id="qc6">
+    <div class="q-header">
+      <div class="q-num">6</div>
+      <div class="q-text">¿Cuál es el misterio central que mueve toda la historia del juego? <span class="imp-badge">NARRATIVO</span></div>
+      <svg class="q-check" width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" fill="rgba(0,255,178,0.2)" stroke="#00ffb2" stroke-width="1.5"/><path d="M6 10.5l3 3 5-6" stroke="#00ffb2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <div class="q-hint">¿Qué son las Brechas? ¿Quién las creó? ¿Qué existe en las profundidades?</div>
+    <div class="chips" data-q="6" data-type="single">
+      <button class="chip" data-val="origen_cosmico">Origen cósmico / dioses dormidos</button>
+      <button class="chip" data-val="experimento">Experimento humano fallido</button>
+      <button class="chip" data-val="invasion">Invasión de otra dimensión</button>
+      <button class="chip" data-val="ciclo_eterno">Ciclo eterno / el mundo se regenera</button>
+      <button class="chip" data-val="tu_defines">Quiero definirlo yo mismo</button>
+    </div>
+    <textarea class="q-textarea" placeholder="Escribe tu visión del lore central..." data-q="6-text"></textarea>
+  </div>
+
+  <!-- Q7 -->
+  <div class="q-card" id="qc7">
+    <div class="q-header">
+      <div class="q-num">7</div>
+      <div class="q-text">¿Qué idioma o idiomas debe soportar el juego desde el lanzamiento? <span class="imp-badge">CRÍTICO</span></div>
+      <svg class="q-check" width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" fill="rgba(0,255,178,0.2)" stroke="#00ffb2" stroke-width="1.5"/><path d="M6 10.5l3 3 5-6" stroke="#00ffb2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <div class="chips" data-q="7" data-type="multi">
+      <button class="chip" data-val="es">Español (principal)</button>
+      <button class="chip" data-val="en">Inglés</button>
+      <button class="chip" data-val="pt">Portugués</button>
+      <button class="chip" data-val="fr">Francés</button>
+      <button class="chip" data-val="solo_es">Solo español por ahora</button>
+    </div>
+  </div>
+
+  <!-- Q8 -->
+  <div class="q-card" id="qc8">
+    <div class="q-header">
+      <div class="q-num">8</div>
+      <div class="q-text">¿Quieres que el juego tenga una historia de temporadas ampliable indefinidamente? <span class="imp-badge">DISEÑO</span></div>
+      <svg class="q-check" width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" fill="rgba(0,255,178,0.2)" stroke="#00ffb2" stroke-width="1.5"/><path d="M6 10.5l3 3 5-6" stroke="#00ffb2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <div class="chips" data-q="8" data-type="single">
+      <button class="chip" data-val="si">Sí, historia viva y expansiva</button>
+      <button class="chip" data-val="no">No, historia cerrada y completa</button>
+      <button class="chip" data-val="hibrido">Historia principal cerrada + temporadas opcionales</button>
+    </div>
+  </div>
+
+  <!-- Q9 -->
+  <div class="q-card" id="qc9">
+    <div class="q-header">
+      <div class="q-num">9</div>
+      <div class="q-text">¿El juego tendrá nombre de facción/organización para los cazadores de Brechas? <span class="imp-badge">LORE</span></div>
+      <svg class="q-check" width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" fill="rgba(0,255,178,0.2)" stroke="#00ffb2" stroke-width="1.5"/><path d="M6 10.5l3 3 5-6" stroke="#00ffb2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <div class="q-hint">Como "Cazadores" en Hunter x Hunter o "Guildas" en otros RPG — pero original y tuyo.</div>
+    <div class="chips" data-q="9" data-type="single">
+      <button class="chip" data-val="resonadores">Los Resonadores (resuenan con las Brechas)</button>
+      <button class="chip" data-val="abismales">Los Abismales</button>
+      <button class="chip" data-val="portadores">Portadores del Eco</button>
+      <button class="chip" data-val="fractureros">Los Fractureros</button>
+      <button class="chip" data-val="yo_elijo">Quiero elegir el nombre yo</button>
+    </div>
+    <input class="q-input" placeholder="Escribe el nombre que imaginas..." data-q="9-text"/>
+  </div>
+
+  <!-- Q10 -->
+  <div class="q-card" id="qc10">
+    <div class="q-header">
+      <div class="q-num">10</div>
+      <div class="q-text">¿Tienes referencias visuales de juegos o arte que te inspiren para el estilo del juego? <span class="imp-badge">VISUAL</span></div>
+      <svg class="q-check" width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" fill="rgba(0,255,178,0.2)" stroke="#00ffb2" stroke-width="1.5"/><path d="M6 10.5l3 3 5-6" stroke="#00ffb2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <div class="q-hint">No copiaremos nada, solo usamos como referencia de sensación.</div>
+    <div class="chips" data-q="10" data-type="multi">
+      <button class="chip" data-val="darksouls">Dark Souls / Elden Ring (oscuro pesado)</button>
+      <button class="chip" data-val="hades">Hades (acción con narrativa fluida)</button>
+      <button class="chip" data-val="honkai">Honkai / Genshin (anime elegante)</button>
+      <button class="chip" data-val="hollow">Hollow Knight (2D artístico oscuro)</button>
+      <button class="chip" data-val="diablo">Diablo (gore, loot, profundidad)</button>
+      <button class="chip" data-val="otro">Otro (describir)</button>
+    </div>
+    <input class="q-input" placeholder="Describe tus referencias..." data-q="10-text"/>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════════════════════════════
+     BLOQUE 2 — VISUAL Y DISEÑO 2D
+═══════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-header">
+    <svg class="section-icon" viewBox="0 0 32 32" fill="none">
+      <rect x="2" y="2" width="28" height="28" rx="7" fill="url(#si2)" opacity=".15"/>
+      <rect x="6" y="8" width="20" height="14" rx="3" stroke="#7b2fff" stroke-width="1.5"/>
+      <circle cx="11" cy="13" r="2" fill="#7b2fff" opacity=".7"/>
+      <path d="M6 22 L12 16 L17 19 L22 13 L26 17" stroke="#00c8ff" stroke-width="1.5" stroke-linecap="round"/>
+      <defs><linearGradient id="si2" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#7b2fff"/><stop offset="1" stop-color="#00c8ff"/></linearGradient></defs>
+    </svg>
+    <div>
+      <div class="section-title">Visual y Diseño 2D</div>
+    </div>
+    <div class="section-num">Preguntas 11–18</div>
+  </div>
+
+  <!-- Q11 -->
+  <div class="q-card" id="qc11">
+    <div class="q-header">
+      <div class="q-num">11</div>
+      <div class="q-text">¿Qué paleta de colores dominante quieres para la UI y el mundo del juego? <span class="imp-badge">CRÍTICO</span></div>
+      <svg class="q-check" width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" fill="rgba(0,255,178,0.2)" stroke="#00ffb2" stroke-width="1.5"/><path d="M6 10.5l3 3 5-6" stroke="#00ffb2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <div class="q-hint">La paleta define la identidad visual completa. Elige hasta 3.</div>
+    <div class="chips" data-q="11" data-type="multi">
+      <button class="chip" data-val="azul_abismo">Azul abismo + negro profundo</button>
+      <button class="chip" data-val="purpura_oscuro">Púrpura oscuro + dorado</button>
+      <button class="chip" data-val="verde_toxico">Verde tóxico + negro</button>
+      <button class="chip" data-val="rojo_sangre">Rojo sangre + gris ceniza</button>
+      <button class="chip" data-val="turquesa_vacio">Turquesa etéreo + vacío negro</button>
+      <button class="chip" data-val="naranja_fuego">Naranja fuego + carbón</button>
+    </div>
+    <div class="color-row" data-q="11-color">
+      <div class="color-opt" style="background:#040d2e" data-val="c1" title="Azul profundo"></div>
+      <div class="color-opt" style="background:#1a0040" data-val="c2" title="Púrpura vacío"></div>
+      <div class="color-opt" style="background:#001a0a" data-val="c3" title="Verde abismo"></div>
+      <div class="color-opt" style="background:#1a0000" data-val="c4" title="Rojo carmesí"></div>
+      <div class="color-opt" style="background:#001818" data-val="c5" title="Cian profundo"></div>
+      <div class="color-opt" style="background:#1a0a00" data-val="c6" title="Ámbar oscuro"></div>
+    </div>
+  </div>
+
+  <!-- Q12 -->
+  <div class="q-card" id="qc12">
+    <div class="q-header">
+      <div class="q-num">12</div>
+      <div class="q-text">¿Cómo deben verse los personajes en pantalla en el 2D? <span class="imp-badge">CRÍTICO</span></div>
+      <svg class="q-check" width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" fill="rgba(0,255,178,0.2)" stroke="#00ffb2" stroke-width="1.5"/><path d="M6 10.5l3 3 5-6" stroke="#00ffb2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <div class="q-hint">Define el estilo de los sprites y la representación de personajes.</div>
+    <div class="chips" data-q="12" data-type="single">
+      <button class="chip" data-val="siluetas_emblema">Siluetas + emblemas de clase (sin caras)</button>
+      <button class="chip" data-val="sprites_pixel">Sprites pixel art detallados</button>
+      <button class="chip" data-val="sprites_vectorial">Sprites vectoriales elegantes (SVG)</button>
+      <button class="chip" data-val="iconos_clase">Solo iconos de clase en el mapa</button>
+      <button class="chip" data-val="retratos_batalla">Retratos en combate + iconos en mapa</button>
+    </div>
+  </div>
+
+  <!-- Q13 -->
+  <div class="q-card" id="qc13">
+    <div class="q-header">
+      <div class="q-num">13</div>
+      <div class="q-text">¿Cómo debe ser la perspectiva del mundo en 2D? <span class="imp-badge">CRÍTICO</span></div>
+      <svg class="q-check" width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" fill="rgba(0,255,178,0.2)" stroke="#00ffb2" stroke-width="1.5"/><path d="M6 10.5l3 3 5-6" stroke="#00ffb2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <div class="chips" data-q="13" data-type="single">
+      <button class="chip" data-val="top_down">Vista cenital / top-down</button>
+      <button class="chip" data-val="isometrica">Isométrica</button>
+      <button class="chip" data-val="side_scroll">Side-scroll (combate lateral)</button>
+      <button class="chip" data-val="hibrido_mapa">Mapa cenital + combate lateral</button>
+      <button class="chip" data-val="visual_novel">Visual novel (fondos + personajes fijos)</button>
+    </div>
+  </div>
+
+  <!-- Q14 -->
+  <div class="q-card" id="qc14">
+    <div class="q-header">
+      <div class="q-num">14</div>
+      <div class="q-text">¿Quieres efectos de partículas y animaciones de habilidades elaboradas? <span class="imp-badge">RENDIMIENTO</span></div>
+      <svg class="q-check" width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" fill="rgba(0,255,178,0.2)" stroke="#00ffb2" stroke-width="1.5"/><path d="M6 10.5l3 3 5-6" stroke="#00ffb2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <div class="q-hint">Los efectos ricos consumen batería. Define el nivel deseado.</div>
+    <div class="chips" data-q="14" data-type="single">
+      <button class="chip" data-val="minimo">Mínimo (prioridad rendimiento)</button>
+      <button class="chip" data-val="moderado">Moderado (equilibrado)</button>
+      <button class="chip" data-val="rico">Rico (máxima espectacularidad)</button>
+      <button class="chip" data-val="adaptativo">Adaptativo según dispositivo</button>
+    </div>
+  </div>
+
+  <!-- Q15 -->
+  <div class="q-card" id="qc15">
+    <div class="q-header">
+      <div class="q-num">15</div>
+      <div class="q-text">¿Quieres ilustraciones completas de los bosses en pantalla durante el combate? <span class="imp-badge">VISUAL</span></div>
+      <svg class="q-check" width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" fill="rgba(0,255,178,0.2)" stroke="#00ffb2" stroke-width="1.5"/><path d="M6 10.5l3 3 5-6" stroke="#00ffb2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <div class="chips" data-q="15" data-type="single">
+      <button class="chip" data-val="si_grandes">Sí, ilustraciones grandes y detalladas</button>
+      <button class="chip" data-val="iconos_grandes">Solo iconos SVG grandes personalizados</button>
+      <button class="chip" data-val="sprites_animados">Sprites animados en CSS/Canvas</button>
+      <button class="chip" data-val="no">Solo texto + barra de vida</button>
+    </div>
+  </div>
+
+  <!-- Q16 -->
+  <div class="q-card" id="qc16">
+    <div class="q-header">
+      <div class="q-num">16</div>
+      <div class="q-text">¿Cuántos iconos SVG originales necesitas en la primera versión? <span class="imp-badge">DISEÑO</span></div>
+      <svg class="q-check" width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" fill="rgba(0,255,178,0.2)" stroke="#00ffb2" stroke-width="1.5"/><path d="M6 10.5l3 3 5-6" stroke="#00ffb2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <div class="q-hint">El Mega Prompt lista más de 40. ¿Con cuántos empezamos?</div>
+    <div class="chips" data-q="16" data-type="single">
+      <button class="chip" data-val="todos_40">Todos los del Mega Prompt (~40)</button>
+      <button class="chip" data-val="core_20">Solo los esenciales (~20)</button>
+      <button class="chip" data-val="progresivo">Empezar con 10 e ir añadiendo</button>
+    </div>
+  </div>
+
+  <!-- Q17 -->
+  <div class="q-card" id="qc17">
+    <div class="q-header">
+      <div class="q-num">17</div>
+      <div class="q-text">¿El mapa del juego debe usar tiles gráficos o representación simbólica con iconos? <span class="imp-badge">TÉCNICO</span></div>
+      <svg class="q-check" width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" fill="rgba(0,255,178,0.2)" stroke="#00ffb2" stroke-width="1.5"/><path d="M6 10.5l3 3 5-6" stroke="#00ffb2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <div class="chips" data-q="17" data-type="single">
+      <button class="chip" data-val="tiles_graficos">Tiles gráficos pintados (dungeon look)</button>
+      <button class="chip" data-val="iconos_svgs">Iconos SVG propios sobre fondo oscuro</button>
+      <button class="chip" data-val="lineas_minimalista">Mapa minimalista de líneas (elegante)</button>
+      <button class="chip" data-val="canvas_2d">Canvas 2D renderizado en tiempo real</button>
+    </div>
+  </div>
+
+  <!-- Q18 -->
+  <div class="q-card" id="qc18">
+    <div class="q-header">
+      <div class="q-num">18</div>
+      <div class="q-text">¿Quieres efectos de clima visual en el juego (lluvia, niebla, tormenta)? <span class="imp-badge">VISUAL</span></div>
+      <svg class="q-check" width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" fill="rgba(0,255,178,0.2)" stroke="#00ffb2" stroke-width="1.5"/><path d="M6 10.5l3 3 5-6" stroke="#00ffb2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <div class="chips" data-q="18" data-type="single">
+      <button class="chip" data-val="si_full">Sí, lluvia / niebla / tormenta animadas</button>
+      <button class="chip" data-val="si_simple">Solo efectos simples de overlay</button>
+      <button class="chip" data-val="no">No, priorizar rendimiento</button>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════════════════════════════
+     BLOQUE 3 — COMBATE Y MECÁNICAS
+═══════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-header">
+    <svg class="section-icon" viewBox="0 0 32 32" fill="none">
+      <rect x="2" y="2" width="28" height="28" rx="7" fill="url(#si3)" opacity=".15"/>
+      <path d="M8 8 L24 24 M8 10 L6 8 L8 6 L10 8 Z M22 24 L24 26 L26 24 L24 22 Z" stroke="#ff3a6e" stroke-width="1.8" stroke-linecap="round"/>
+      <circle cx="16" cy="16" r="3" fill="none" stroke="#ffd166" stroke-width="1.5"/>
+      <defs><linearGradient id="si3" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ff3a6e"/><stop offset="1" stop-color="#ffd166"/></linearGradient></defs>
+    </svg>
+    <div>
+      <div class="section-title">Sistema de Combate</div>
+    </div>
+    <div class="section-num">Preguntas 19–27</div>
+  </div>
+
+  <!-- Q19 -->
+  <div class="q-card" id="qc19">
+    <div class="q-header">
+      <div class="q-num">19</div>
+      <div class="q-text">¿Qué tipo de combate quieres principalmente? <span class="imp-badge">CRÍTICO</span></div>
+      <svg class="q-check" width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" fill="rgba(0,255,178,0.2)" stroke="#00ffb2" stroke-width="1.5"/><path d="M6 10.5l3 3 5-6" stroke="#00ffb2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <div class="chips" data-q="19" data-type="single">
+      <button class="chip" data-val="semi_turno">Semi por turnos (cooldowns y acción rápida)</button>
+      <button class="chip" data-val="accion_tiempo_real">Acción en tiempo real</button>
+      <button class="chip" data-val="turnos_clasico">Turnos clásico estratégico</button>
+      <button class="chip" data-val="cartas">Sistema de cartas / habilidades seleccionables</button>
+    </div>
+  </div>
+
+  <!-- Q20 -->
+  <div class="q-card" id="qc20">
+    <div class="q-header">
+      <div class="q-num">20</div>
+      <div class="q-text">¿Cuántas habilidades visibles simultáneamente en el HUD de combate? <span class="imp-badge">UI</span></div>
+      <svg class="q-check" width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" fill="rgba(0,255,178,0.2)" stroke="#00ffb2" stroke-width="1.5"/><path d="M6 10.5l3 3 5-6" stroke="#00ffb2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <div class="q-hint">Más habilidades = más complejidad táctica. Menos = más accesible.</div>
+    <div class="chips" data-q="20" data-type="single">
+      <button class="chip" data-val="4">4 habilidades</button>
+      <button class="chip" data-val="6">6 habilidades</button>
+      <button class="chip" data-val="8">8 habilidades</button>
+      <button class="chip" data-val="scroll">4 visibles + scroll para más</button>
+    </div>
+  </div>
+
+  <!-- Q21 -->
+  <div class="q-card" id="qc21">
+    <div class="q-header">
+      <div class="q-num">21</div>
+      <div class="q-text">¿Quieres sistema de combos elementales (hielo + rayo = efecto especial)? <span class="imp-badge">MECÁNICA</span></div>
+      <svg class="q-check" width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" fill="rgba(0,255,178,0.2)" stroke="#00ffb2" stroke-width="1.5"/><path d="M6 10.5l3 3 5-6" stroke="#00ffb2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <div class="chips" data-q="21" data-type="single">
+      <button class="chip" data-val="si_completo">Sí, sistema completo de combinaciones</button>
+      <button class="chip" data-val="si_simple">Sí, pero solo las más importantes</button>
+      <button class="chip" data-val="no">No, mantener simple</button>
+    </div>
+  </div>
+
+  <!-- Q22 -->
+  <div class="q-card" id="qc22">
+    <div class="q-header">
+      <div class="q-num">22</div>
+      <div class="q-text">¿Quieres habilidad "Ultimate" o "definitiva" con animación especial? <span class="imp-badge">MECÁNICA</span></div>
+      <svg class="q-check" width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" fill="rgba(0,255,178,0.2)" stroke="#00ffb2" stroke-width="1.5"/><path d="M6 10.5l3 3 5-6" stroke="#00ffb2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <div class="chips" data-q="22" data-type="single">
+      <button class="chip" data-val="si_una">Sí, una por personaje</button>
+      <button class="chip" data-val="si_varias">Sí, varias (por clase/evolución)</button>
+      <button class="chip" data-val="no">No</button>
+    </div>
+  </div>
+
+  <!-- Q23 -->
+  <div class="q-card" id="qc23">
+    <div class="q-header">
+      <div class="q-num">23</div>
+      <div class="q-text">¿El sistema de muerte/derrota en combate debe ser severo o permisivo? <span class="imp-badge">DIFICULTAD</span></div>
+      <svg class="q-check" width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" fill="rgba(0,255,178,0.2)" stroke="#00ffb2" stroke-width="1.5"/><path d="M6 10.5l3 3 5-6" stroke="#00ffb2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <div class="chips" data-q="23" data-type="single">
+      <button class="chip" data-val="permisivo">Permisivo (revivir gratis, sin penalización)</button>
+      <button class="chip" data-val="moderado">Moderado (pérdida de XP o recursos)</button>
+      <button class="chip" data-val="severo">Severo (pérdida de equipo)</button>
+      <button class="chip" data-val="hardcore">Hardcore (muerte permanente)</button>
+      <button class="chip" data-val="eleccion">El jugador elige dificultad</button>
+    </div>
+  </div>
+
+  <!-- Q24 -->
+  <div class="q-card" id="qc24">
+    <div class="q-header">
+      <div class="q-num">24</div>
+      <div class="q-text">¿Los bosses deben tener múltiples fases con mecánicas distintas? <span class="imp-badge">DISEÑO</span></div>
+      <svg class="q-check" width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" fill="rgba(0,255,178,0.2)" stroke="#00ffb2" stroke-width="1.5"/><path d="M6 10.5l3 3 5-6" stroke="#00ffb2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <div class="chips" data-q="24" data-type="single">
+      <button class="chip" data-val="si_todas">Sí, todos los bosses con fases</button>
+      <button class="chip" data-val="si_grandes">Solo los bosses principales</button>
+      <button class="chip" data-val="no">No, un solo estado</button>
+    </div>
+  </div>
+
+  <!-- Q25 -->
+  <div class="q-card" id="qc25">
+    <div class="q-header">
+      <div class="q-num">25</div>
+      <div class="q-text">¿Cuántas clases quieres en la primera versión jugable? <span class="imp-badge">PROGRESIÓN</span></div>
+      <svg class="q-check" width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" fill="rgba(0,255,178,0.2)" stroke="#00ffb2" stroke-width="1.5"/><path d="M6 10.5l3 3 5-6" stroke="#00ffb2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <div class="q-hint">El Mega Prompt define 15 clases. ¿Con cuántas arrancamos?</div>
+    <div class="chips" data-q="25" data-type="single">
+      <button class="chip" data-val="3">3 clases base</button>
+      <button class="chip" data-val="5">5 clases base</button>
+      <button class="chip" data-val="8">8 clases base</button>
+      <button class="chip" data-val="15">Las 15 desde el inicio</button>
+    </div>
+  </div>
+
+  <!-- Q26 -->
+  <div class="q-card" id="qc26">
+    <div class="q-header">
+      <div class="q-num">26</div>
+      <div class="q-text">¿Quieres sistema de runas, artefactos y crafting desde la primera versión? <span class="imp-badge">MECÁNICA</span></div>
+      <svg class="q-check" width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" fill="rgba(0,255,178,0.2)" stroke="#00ffb2" stroke-width="1.5"/><path d="M6 10.5l3 3 5-6" stroke="#00ffb2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <div class="chips" data-q="26" data-type="multi">
+      <button class="chip" data-val="runas_v1">Sí, runas desde v1</button>
+      <button class="chip" data-val="artefactos_v1">Sí, artefactos desde v1</button>
+      <button class="chip" data-val="crafting_v1">Sí, crafting desde v1</button>
+      <button class="chip" data-val="todo_despues">Todo en v2</button>
+      <button class="chip" data-val="basico_solo">Solo sistema básico de equipo</button>
+    </div>
+  </div>
+
+  <!-- Q27 -->
+  <div class="q-card" id="qc27">
+    <div class="q-header">
+      <div class="q-num">27</div>
+      <div class="q-text">¿Nivel máximo o progresión infinita? <span class="imp-badge">DISEÑO</span></div>
+      <svg class="q-check" width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" fill="rgba(0,255,178,0.2)" stroke="#00ffb2" stroke-width="1.5"/><path d="M6 10.5l3 3 5-6" stroke="#00ffb2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <div class="chips" data-q="27" data-type="single">
+      <button class="chip" data-val="infinito">Infinito (siempre hay más)</button>
+      <button class="chip" data-val="cap_alto">Cap alto (nivel 999)</button>
+      <button class="chip" data-val="cap_100">Cap 100 + maestrías</button>
+      <button class="chip" data-val="prestige">Cap + sistema de prestigio/reencarnación</button>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════════════════════════════
+     BLOQUE 4 — GPS, MUNDO REAL Y MODOS
+═══════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-header">
+    <svg class="section-icon" viewBox="0 0 32 32" fill="none">
+      <rect x="2" y="2" width="28" height="28" rx="7" fill="url(#si4)" opacity=".15"/>
+      <circle cx="16" cy="14" r="5" stroke="#00ffb2" stroke-width="1.5"/>
+      <circle cx="16" cy="14" r="2" fill="#00ffb2" opacity=".5"/>
+      <path d="M16 19 L16 28" stroke="#00ffb2" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="2 2"/>
+      <path d="M9 10 Q16 4 23 10" stroke="#00c8ff" stroke-width="1.2" fill="none" opacity=".5"/>
+      <defs><linearGradient id="si4" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#00ffb2"/><stop offset="1" stop-color="#00c8ff"/></linearGradient></defs>
+    </svg>
+    <div>
+      <div class="section-title">GPS, Mundo Real y Modos de Juego</div>
+    </div>
+    <div class="section-num">Preguntas 28–36</div>
+  </div>
+
+  <!-- Q28 -->
+  <div class="q-card" id="qc28">
+    <div class="q-header">
+      <div class="q-num">28</div>
+      <div class="q-text">¿El Modo Mundo Real con GPS es obligatorio o totalmente opcional? <span class="imp-badge">CRÍTICO</span></div>
+      <svg class="q-check" width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" fill="rgba(0,255,178,0.2)" stroke="#00ffb2" stroke-width="1.5"/><path d="M6 10.5l3 3 5-6" stroke="#00ffb2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <div class="chips" data-q="28" data-type="single">
+      <button class="chip" data-val="obligatorio">Obligatorio para progresión real</button>
+      <button class="chip" data-val="bonificacion">Opcional con bonificaciones exclusivas</button>
+      <button class="chip" data-val="totalmente_opt">Totalmente opcional (solo cosméticas)</button>
+      <button class="chip" data-val="siempre_libre">El Modo Libre es siempre equivalente</button>
+    </div>
+  </div>
+
+  <!-- Q29 -->
+  <div class="q-card" id="qc29">
+    <div class="q-header">
+      <div class="q-num">29</div>
+      <div class="q-text">¿Qué nombre definitivo quieres para la habilidad de "Modo Libre" (proyección astral)? <span class="imp-badge">LORE</span></div>
+      <svg class="q-check" width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" fill="rgba(0,255,178,0.2)" stroke="#00ffb2" stroke-width="1.5"/><path d="M6 10.5l3 3 5-6" stroke="#00ffb2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <div class="chips" data-q="29" data-type="single">
+      <button class="chip" data-val="proyeccion">PROYECCIÓN</button>
+      <button class="chip" data-val="transito_astral">TRÁNSITO ASTRAL</button>
+      <button class="chip" data-val="eco_del_alma">ECO DEL ALMA</button>
+      <button class="chip" data-val="resonancia">RESONANCIA</button>
+      <button class="chip" data-val="inmersion">INMERSIÓN</button>
+      <button class="chip" data-val="otro_nombre">Otro nombre (escribir)</button>
+    </div>
+    <input class="q-input" placeholder="Tu nombre propuesto..." data-q="29-text"/>
+  </div>
+
+  <!-- Q30 -->
+  <div class="q-card" id="qc30">
+    <div class="q-header">
+      <div class="q-num">30</div>
+      <div class="q-text">¿El Modo Libre debe desbloquearse mediante la historia o estar disponible desde el inicio? <span class="imp-badge">DISEÑO</span></div>
+      <svg class="q-check" width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" fill="rgba(0,255,178,0.2)" stroke="#00ffb2" stroke-width="1.5"/><path d="M6 10.5l3 3 5-6" stroke="#00ffb2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <div class="chips" data-q="30" data-type="single">
+      <button class="chip" data-val="inicio">Disponible desde el inicio</button>
+      <button class="chip" data-val="historia_corta">Tras 5 min de historia tutorial</button>
+      <button class="chip" data-val="historia_larga">Tras completar el primer capítulo</button>
+    </div>
+  </div>
+
+  <!-- Q31 -->
+  <div class="q-card" id="qc31">
+    <div class="q-header">
+      <div class="q-num">31</div>
+      <div class="q-text">¿Quieres que la hora real del día afecte los encuentros y enemigos? <span class="imp-badge">MECÁNICA</span></div>
+      <svg class="q-check" width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" fill="rgba(0,255,178,0.2)" stroke="#00ffb2" stroke-width="1.5"/><path d="M6 10.5l3 3 5-6" stroke="#00ffb2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <div class="chips" data-q="31" data-type="single">
+      <button class="chip" data-val="si_todo">Sí, afecta todo (monstruos, eventos, tiendas)</button>
+      <button class="chip" data-val="si_parcial">Solo algunos eventos nocturnos</button>
+      <button class="chip" data-val="no">No, misma experiencia siempre</button>
+    </div>
+  </div>
+
+  <!-- Q32 -->
+  <div class="q-card" id="qc32">
+    <div class="q-header">
+      <div class="q-num">32</div>
+      <div class="q-text">¿Quieres función de cámara / realidad aumentada? <span class="imp-badge">TÉCNICO</span></div>
+      <svg class="q-check" width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" fill="rgba(0,255,178,0.2)" stroke="#00ffb2" stroke-width="1.5"/><path d="M6 10.5l3 3 5-6" stroke="#00ffb2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <div class="chips" data-q="32" data-type="single">
+      <button class="chip" data-val="si_v1">Sí, en la primera versión</button>
+      <button class="chip" data-val="si_v2">Sí, pero en versión futura</button>
+      <button class="chip" data-val="opcional">Opcional si el dispositivo lo soporta</button>
+      <button class="chip" data-val="no">No</button>
+    </div>
+  </div>
+
+  <!-- Q33 -->
+  <div class="q-card" id="qc33">
+    <div class="q-header">
+      <div class="q-num">33</div>
+      <div class="q-text">¿Las Brechas del mapa real deben aparecer en lugares reales específicos o de forma completamente aleatoria? <span class="imp-badge">DISEÑO</span></div>
+      <svg class="q-check" width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" fill="rgba(0,255,178,0.2)" stroke="#00ffb2" stroke-width="1.5"/><path d="M6 10.5l3 3 5-6" stroke="#00ffb2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <div class="chips" data-q="33" data-type="single">
+      <button class="chip" data-val="seed_region">Basadas en seed de región (reproducibles)</button>
+      <button class="chip" data-val="bioma">Según bioma/zona de la ciudad</button>
+      <button class="chip" data-val="random">Completamente aleatorio</button>
+      <button class="chip" data-val="eventos">Solo en eventos temporales</button>
+    </div>
+  </div>
+
+  <!-- Q34 -->
+  <div class="q-card" id="qc34">
+    <div class="q-header">
+      <div class="q-num">34</div>
+      <div class="q-text">¿Quieres paquetes de regiones descargables para jugar offline con mapa real? <span class="imp-badge">OFFLINE</span></div>
+      <svg class="q-check" width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" fill="rgba(0,255,178,0.2)" stroke="#00ffb2" stroke-width="1.5"/><path d="M6 10.5l3 3 5-6" stroke="#00ffb2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <div class="chips" data-q="34" data-type="single">
+      <button class="chip" data-val="si_v1">Sí, en v1</button>
+      <button class="chip" data-val="si_v2">Sí, en v2</button>
+      <button class="chip" data-val="no_mapa_virtual">No, el offline usa solo mapa virtual</button>
+    </div>
+  </div>
+
+  <!-- Q35 -->
+  <div class="q-card" id="qc35">
+    <div class="q-header">
+      <div class="q-num">35</div>
+      <div class="q-text">¿Qué porcentaje del juego debe ser completamente jugable offline? <span class="imp-badge">CRÍTICO</span></div>
+      <svg class="q-check" width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" fill="rgba(0,255,178,0.2)" stroke="#00ffb2" stroke-width="1.5"/><path d="M6 10.5l3 3 5-6" stroke="#00ffb2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <div class="chips" data-q="35" data-type="single">
+      <button class="chip" data-val="100">100% offline completo</button>
+      <button class="chip" data-val="80">80% (multijugador online)</button>
+      <button class="chip" data-val="60">60% (mapa real requiere Internet)</button>
+    </div>
+  </div>
+
+  <!-- Q36 -->
+  <div class="q-card" id="qc36">
+    <div class="q-header">
+      <div class="q-num">36</div>
+      <div class="q-text">¿Quieres un joystick virtual en pantalla para el Modo Libre? <span class="imp-badge">UI</span></div>
+      <svg class="q-check" width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" fill="rgba(0,255,178,0.2)" stroke="#00ffb2" stroke-width="1.5"/><path d="M6 10.5l3 3 5-6" stroke="#00ffb2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <div class="chips" data-q="36" data-type="single">
+      <button class="chip" data-val="joystick_fijo">Joystick fijo en esquina inferior izquierda</button>
+      <button class="chip" data-val="joystick_dinamico">Joystick dinámico (aparece donde tocas)</button>
+      <button class="chip" data-val="swipe">Swipe / deslizar para moverse</button>
+      <button class="chip" data-val="tap_mover">Tap en destino para moverse</button>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════════════════════════════
+     BLOQUE 5 — MULTIJUGADOR Y TÉCNICO
+═══════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-header">
+    <svg class="section-icon" viewBox="0 0 32 32" fill="none">
+      <rect x="2" y="2" width="28" height="28" rx="7" fill="url(#si5)" opacity=".15"/>
+      <circle cx="10" cy="16" r="3" stroke="#00c8ff" stroke-width="1.5"/>
+      <circle cx="22" cy="16" r="3" stroke="#7b2fff" stroke-width="1.5"/>
+      <circle cx="16" cy="9" r="3" stroke="#ffd166" stroke-width="1.5"/>
+      <path d="M13 16 L19 16 M13.5 13.5 L14.5 11.5 M18.5 13.5 L17.5 11.5" stroke="#00c8ff" stroke-width="1" opacity=".5"/>
+      <defs><linearGradient id="si5" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#00c8ff"/><stop offset="1" stop-color="#7b2fff"/></linearGradient></defs>
+    </svg>
+    <div>
+      <div class="section-title">Multijugador y Aspectos Técnicos</div>
+    </div>
+    <div class="section-num">Preguntas 37–46</div>
+  </div>
+
+  <!-- Q37 -->
+  <div class="q-card" id="qc37">
+    <div class="q-header">
+      <div class="q-num">37</div>
+      <div class="q-text">¿Cuántos jugadores máximos en una partida cooperativa? <span class="imp-badge">CRÍTICO</span></div>
+      <svg class="q-check" width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" fill="rgba(0,255,178,0.2)" stroke="#00ffb2" stroke-width="1.5"/><path d="M6 10.5l3 3 5-6" stroke="#00ffb2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <div class="chips" data-q="37" data-type="single">
+      <button class="chip" data-val="2">2 jugadores</button>
+      <button class="chip" data-val="4">4 jugadores (recomendado)</button>
+      <button class="chip" data-val="6">6 jugadores (raid)</button>
+      <button class="chip" data-val="escalable">Escalable según modo</button>
+    </div>
+  </div>
+
+  <!-- Q38 -->
+  <div class="q-card" id="qc38">
+    <div class="q-header">
+      <div class="q-num">38</div>
+      <div class="q-text">¿El multijugador local Wi-Fi debe funcionar sin ningún servidor externo ni Internet? <span class="imp-badge">CRÍTICO</span></div>
+      <svg class="q-check" width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" fill="rgba(0,255,178,0.2)" stroke="#00ffb2" stroke-width="1.5"/><path d="M6 10.5l3 3 5-6" stroke="#00ffb2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <div class="chips" data-q="38" data-type="single">
+      <button class="chip" data-val="si_100_local">Sí, 100% local sin Internet</button>
+      <button class="chip" data-val="si_con_serv">Sí pero con servidor mínimo de señalización</button>
+      <button class="chip" data-val="solo_online">Solo multijugador online</button>
+    </div>
+  </div>
+
+  <!-- Q39 -->
+  <div class="q-card" id="qc39">
+    <div class="q-header">
+      <div class="q-num">39</div>
+      <div class="q-text">¿Cómo debe unirse un jugador a una partida local? <span class="imp-badge">UX</span></div>
+      <svg class="q-check" width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" fill="rgba(0,255,178,0.2)" stroke="#00ffb2" stroke-width="1.5"/><path d="M6 10.5l3 3 5-6" stroke="#00ffb2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <div class="chips" data-q="39" data-type="multi">
+      <button class="chip" data-val="qr">Escanear código QR</button>
+      <button class="chip" data-val="codigo_sala">Código de sala (ej: AB7X-92)</button>
+      <button class="chip" data-val="auto_descubrimiento">Auto-descubrimiento en red local</button>
+      <button class="chip" data-val="nfc">NFC (acercar teléfonos)</button>
+    </div>
+  </div>
+
+  <!-- Q40 -->
+  <div class="q-card" id="qc40">
+    <div class="q-header">
+      <div class="q-num">40</div>
+      <div class="q-text">¿Quieres modo PvP (jugadores contra jugadores)? <span class="imp-badge">DISEÑO</span></div>
+      <svg class="q-check" width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" fill="rgba(0,255,178,0.2)" stroke="#00ffb2" stroke-width="1.5"/><path d="M6 10.5l3 3 5-6" stroke="#00ffb2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <div class="chips" data-q="40" data-type="multi">
+      <button class="chip" data-val="duelo_1v1">Duelo 1v1</button>
+      <button class="chip" data-val="arena_2v2">Arena 2v2</button>
+      <button class="chip" data-val="free_all">Free For All</button>
+      <button class="chip" data-val="dungeon_race">Dungeon Race</button>
+      <button class="chip" data-val="no_pvp">Sin PvP en v1</button>
+    </div>
+  </div>
+
+  <!-- Q41 -->
+  <div class="q-card" id="qc41">
+    <div class="q-header">
+      <div class="q-num">41</div>
+      <div class="q-text">¿El juego debe poder instalarse como PWA en la pantalla de inicio del teléfono? <span class="imp-badge">TÉCNICO</span></div>
+      <svg class="q-check" width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" fill="rgba(0,255,178,0.2)" stroke="#00ffb2" stroke-width="1.5"/><path d="M6 10.5l3 3 5-6" stroke="#00ffb2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <div class="chips" data-q="41" data-type="single">
+      <button class="chip" data-val="si_pwa">Sí, PWA instalable con service worker</button>
+      <button class="chip" data-val="solo_web">Solo funcionar en navegador</button>
+      <button class="chip" data-val="pwa_mas_apk">PWA + generar APK también</button>
+    </div>
+  </div>
+
+  <!-- Q42 -->
+  <div class="q-card" id="qc42">
+    <div class="q-header">
+      <div class="q-num">42</div>
+      <div class="q-text">¿Qué stack tecnológico prefieres para el desarrollo? <span class="imp-badge">TÉCNICO</span></div>
+      <svg class="q-check" width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" fill="rgba(0,255,178,0.2)" stroke="#00ffb2" stroke-width="1.5"/><path d="M6 10.5l3 3 5-6" stroke="#00ffb2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <div class="chips" data-q="42" data-type="single">
+      <button class="chip" data-val="vanilla">HTML5 + CSS3 + JS Vanilla (ligero)</button>
+      <button class="chip" data-val="canvas_2d">Canvas 2D + JS Vanilla</button>
+      <button class="chip" data-val="phaser">Phaser.js (motor 2D web)</button>
+      <button class="chip" data-val="pixijs">PixiJS (renderer 2D GPU)</button>
+      <button class="chip" data-val="react">React/Vue + Canvas/WebGL</button>
+    </div>
+  </div>
+
+  <!-- Q43 -->
+  <div class="q-card" id="qc43">
+    <div class="q-header">
+      <div class="q-num">43</div>
+      <div class="q-text">¿Quieres soporte para guardado en la nube (sincronización entre dispositivos)? <span class="imp-badge">TÉCNICO</span></div>
+      <svg class="q-check" width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" fill="rgba(0,255,178,0.2)" stroke="#00ffb2" stroke-width="1.5"/><path d="M6 10.5l3 3 5-6" stroke="#00ffb2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <div class="chips" data-q="43" data-type="single">
+      <button class="chip" data-val="si_v1">Sí, desde v1</button>
+      <button class="chip" data-val="si_v2">Sí, en v2</button>
+      <button class="chip" data-val="local_only">Solo guardado local (IndexedDB)</button>
+      <button class="chip" data-val="export_import">Solo exportar/importar archivo de guardado</button>
+    </div>
+  </div>
+
+  <!-- Q44 -->
+  <div class="q-card" id="qc44">
+    <div class="q-header">
+      <div class="q-num">44</div>
+      <div class="q-text">¿En qué dispositivos debe funcionar primero? <span class="imp-badge">PRIORIDAD</span></div>
+      <svg class="q-check" width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" fill="rgba(0,255,178,0.2)" stroke="#00ffb2" stroke-width="1.5"/><path d="M6 10.5l3 3 5-6" stroke="#00ffb2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <div class="chips" data-q="44" data-type="multi">
+      <button class="chip" data-val="android">Android (Chrome/Samsung)</button>
+      <button class="chip" data-val="iphone">iPhone (Safari)</button>
+      <button class="chip" data-val="gama_baja">Teléfonos gama baja</button>
+      <button class="chip" data-val="pc_desktop">PC / Desktop</button>
+      <button class="chip" data-val="tablet">Tablet</button>
+    </div>
+  </div>
+
+  <!-- Q45 -->
+  <div class="q-card" id="qc45">
+    <div class="q-header">
+      <div class="q-num">45</div>
+      <div class="q-text">¿Quieres sistema de notificaciones push (eventos del mundo, brechas)? <span class="imp-badge">TÉCNICO</span></div>
+      <svg class="q-check" width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" fill="rgba(0,255,178,0.2)" stroke="#00ffb2" stroke-width="1.5"/><path d="M6 10.5l3 3 5-6" stroke="#00ffb2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <div class="chips" data-q="45" data-type="single">
+      <button class="chip" data-val="si">Sí, notificaciones de eventos</button>
+      <button class="chip" data-val="no">No</button>
+      <button class="chip" data-val="opcional">Opcional (el usuario elige)</button>
+    </div>
+  </div>
+
+  <!-- Q46 -->
+  <div class="q-card" id="qc46">
+    <div class="q-header">
+      <div class="q-num">46</div>
+      <div class="q-text">¿El audio debe incluir música dinámica (cambia según el estado del juego)? <span class="imp-badge">AUDIO</span></div>
+      <svg class="q-check" width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" fill="rgba(0,255,178,0.2)" stroke="#00ffb2" stroke-width="1.5"/><path d="M6 10.5l3 3 5-6" stroke="#00ffb2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <div class="chips" data-q="46" data-type="single">
+      <button class="chip" data-val="si_dinamico">Sí, música que reacciona a combate/exploración</button>
+      <button class="chip" data-val="si_temas">Solo pistas por zona/estado</button>
+      <button class="chip" data-val="solo_sfx">Solo efectos de sonido, sin música</button>
+      <button class="chip" data-val="no_audio">Sin audio en v1</button>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════════════════════════════
+     BLOQUE 6 — MAZMORRAS Y PROGRESIÓN
+═══════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-header">
+    <svg class="section-icon" viewBox="0 0 32 32" fill="none">
+      <rect x="2" y="2" width="28" height="28" rx="7" fill="url(#si6)" opacity=".15"/>
+      <rect x="7" y="7" width="8" height="8" rx="2" stroke="#ffd166" stroke-width="1.3"/>
+      <rect x="17" y="7" width="8" height="8" rx="2" stroke="#ffd166" stroke-width="1.3" opacity=".6"/>
+      <rect x="7" y="17" width="8" height="8" rx="2" stroke="#ffd166" stroke-width="1.3" opacity=".6"/>
+      <rect x="17" y="17" width="8" height="8" rx="2" stroke="#ff3a6e" stroke-width="1.3"/>
+      <path d="M15 11 L17 11 M11 15 L11 17 M21 15 L21 17 M15 21 L17 21" stroke="#ffd166" stroke-width="1.2" stroke-linecap="round"/>
+      <defs><linearGradient id="si6" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ffd166"/><stop offset="1" stop-color="#ff3a6e"/></linearGradient></defs>
+    </svg>
+    <div>
+      <div class="section-title">Mazmorras y Progresión</div>
+    </div>
+    <div class="section-num">Preguntas 47–55</div>
+  </div>
+
+  <!-- Q47 -->
+  <div class="q-card" id="qc47">
+    <div class="q-header">
+      <div class="q-num">47</div>
+      <div class="q-text">¿Las mazmorras deben ser generadas proceduralmente o diseñadas a mano? <span class="imp-badge">CRÍTICO</span></div>
+      <svg class="q-check" width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" fill="rgba(0,255,178,0.2)" stroke="#00ffb2" stroke-width="1.5"/><path d="M6 10.5l3 3 5-6" stroke="#00ffb2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <div class="chips" data-q="47" data-type="single">
+      <button class="chip" data-val="procedural">100% procedural (infinitas y únicas)</button>
+      <button class="chip" data-val="mano">Diseñadas a mano (historia curada)</button>
+      <button class="chip" data-val="hibrido">Híbrido (mano para historia, procedural para grind)</button>
+    </div>
+  </div>
+
+  <!-- Q48 -->
+  <div class="q-card" id="qc48">
+    <div class="q-header">
+      <div class="q-num">48</div>
+      <div class="q-text">¿Quieres pisos de mazmorra infinitos? <span class="imp-badge">DISEÑO</span></div>
+      <svg class="q-check" width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" fill="rgba(0,255,178,0.2)" stroke="#00ffb2" stroke-width="1.5"/><path d="M6 10.5l3 3 5-6" stroke="#00ffb2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <div class="chips" data-q="48" data-type="single">
+      <button class="chip" data-val="si">Sí, sin límite de pisos</button>
+      <button class="chip" data-val="cap_100">Máximo 100 pisos por mazmorra</button>
+      <button class="chip" data-val="variable">Variable según tipo de mazmorra</button>
+    </div>
+  </div>
+
+  <!-- Q49 -->
+  <div class="q-card" id="qc49">
+    <div class="q-header">
+      <div class="q-num">49</div>
+      <div class="q-text">¿Quieres habitaciones secretas, puzzles y trampas dentro de las mazmorras? <span class="imp-badge">DISEÑO</span></div>
+      <svg class="q-check" width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" fill="rgba(0,255,178,0.2)" stroke="#00ffb2" stroke-width="1.5"/><path d="M6 10.5l3 3 5-6" stroke="#00ffb2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <div class="chips" data-q="49" data-type="multi">
+      <button class="chip" data-val="secretas">Habitaciones secretas</button>
+      <button class="chip" data-val="puzzles">Puzzles</button>
+      <button class="chip" data-val="trampas">Trampas</button>
+      <button class="chip" data-val="npc_mazmorra">NPC dentro de mazmorras</button>
+      <button class="chip" data-val="nada_extra">Solo combate y avance</button>
+    </div>
+  </div>
+
+  <!-- Q50 -->
+  <div class="q-card" id="qc50">
+    <div class="q-header">
+      <div class="q-num">50</div>
+      <div class="q-text">¿Quieres un sistema de clanes/gremios desde la primera versión? <span class="imp-badge">SOCIAL</span></div>
+      <svg class="q-check" width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" fill="rgba(0,255,178,0.2)" stroke="#00ffb2" stroke-width="1.5"/><path d="M6 10.5l3 3 5-6" stroke="#00ffb2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <div class="chips" data-q="50" data-type="single">
+      <button class="chip" data-val="si_v1">Sí, clanes completos en v1</button>
+      <button class="chip" data-val="basico_v1">Sistema básico en v1, expandir en v2</button>
+      <button class="chip" data-val="no_v1">No en v1, solo party/multijugador</button>
+    </div>
+  </div>
+
+  <!-- Q51 -->
+  <div class="q-card" id="qc51">
+    <div class="q-header">
+      <div class="q-num">51</div>
+      <div class="q-text">¿El sistema de loot debe generar objetos con nombres únicos procedurales? <span class="imp-badge">LOOT</span></div>
+      <svg class="q-check" width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" fill="rgba(0,255,178,0.2)" stroke="#00ffb2" stroke-width="1.5"/><path d="M6 10.5l3 3 5-6" stroke="#00ffb2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <div class="q-hint">Ej: "Espada de Sangre del Vacío Crepuscular" generada algorítmicamente.</div>
+    <div class="chips" data-q="51" data-type="single">
+      <button class="chip" data-val="si_nombres">Sí, nombres procedurales únicos</button>
+      <button class="chip" data-val="nombres_fijos">No, nombres fijos diseñados a mano</button>
+      <button class="chip" data-val="hibrido">Híbrido (base + sufijos generados)</button>
+    </div>
+  </div>
+
+  <!-- Q52 -->
+  <div class="q-card" id="qc52">
+    <div class="q-header">
+      <div class="q-num">52</div>
+      <div class="q-text">¿Quieres un sistema de logros/trofeos visible para el jugador? <span class="imp-badge">PROGRESIÓN</span></div>
+      <svg class="q-check" width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" fill="rgba(0,255,178,0.2)" stroke="#00ffb2" stroke-width="1.5"/><path d="M6 10.5l3 3 5-6" stroke="#00ffb2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <div class="chips" data-q="52" data-type="single">
+      <button class="chip" data-val="si_v1">Sí desde v1</button>
+      <button class="chip" data-val="si_v2">En versiones futuras</button>
+      <button class="chip" data-val="no">No</button>
+    </div>
+  </div>
+
+  <!-- Q53 -->
+  <div class="q-card" id="qc53">
+    <div class="q-header">
+      <div class="q-num">53</div>
+      <div class="q-text">¿Quieres modo de temporadas con contenido rotativo? <span class="imp-badge">DISEÑO</span></div>
+      <svg class="q-check" width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" fill="rgba(0,255,178,0.2)" stroke="#00ffb2" stroke-width="1.5"/><path d="M6 10.5l3 3 5-6" stroke="#00ffb2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <div class="chips" data-q="53" data-type="single">
+      <button class="chip" data-val="si">Sí, temporadas cada 2-3 meses</button>
+      <button class="chip" data-val="eventos">Solo eventos especiales sin temporadas</button>
+      <button class="chip" data-val="no">No, contenido estático</button>
+    </div>
+  </div>
+
+  <!-- Q54 — MONETIZACIÓN -->
+  <div class="q-card" id="qc54">
+    <div class="q-header">
+      <div class="q-num">54</div>
+      <div class="q-text">¿Cuál es el modelo de monetización del juego? <span class="imp-badge">NEGOCIO</span></div>
+      <svg class="q-check" width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" fill="rgba(0,255,178,0.2)" stroke="#00ffb2" stroke-width="1.5"/><path d="M6 10.5l3 3 5-6" stroke="#00ffb2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <div class="chips" data-q="54" data-type="multi">
+      <button class="chip" data-val="gratis_total">Completamente gratuito</button>
+      <button class="chip" data-val="cosmeticos">Cosméticos de pago (no P2W)</button>
+      <button class="chip" data-val="premium">Contenido premium / DLC</button>
+      <button class="chip" data-val="donaciones">Donaciones voluntarias</button>
+      <button class="chip" data-val="sin_moneti">Sin monetización por ahora</button>
+    </div>
+  </div>
+
+  <!-- Q55 — PRIORIDAD PRIMERA VERSIÓN -->
+  <div class="q-card" id="qc55">
+    <div class="q-header">
+      <div class="q-num">55</div>
+      <div class="q-text">¿Cuál es la prioridad absoluta número 1 para la primera versión jugable del juego? <span class="imp-badge">CRÍTICO</span></div>
+      <svg class="q-check" width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" fill="rgba(0,255,178,0.2)" stroke="#00ffb2" stroke-width="1.5"/><path d="M6 10.5l3 3 5-6" stroke="#00ffb2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <div class="q-hint">Esto define el scope exacto del prototipo que construiremos primero.</div>
+    <div class="chips" data-q="55" data-type="single">
+      <button class="chip" data-val="combate_mazmorra">Combate + Mazmorra funcional</button>
+      <button class="chip" data-val="mapa_mundo_real">Mapa mundo real con GPS</button>
+      <button class="chip" data-val="narrativa_historia">Historia narrativa completa</button>
+      <button class="chip" data-val="multijugador">Multijugador local funcional</button>
+      <button class="chip" data-val="todo_basico">Todo lo básico del Mega Prompt en v1</button>
+    </div>
+    <textarea class="q-textarea" placeholder="Describe con tus palabras qué es lo más importante que debe existir en la primera versión que veamos funcionando..." data-q="55-text"></textarea>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     SUBMIT
+═══════════════════════════════════════════ -->
+<div class="submit-section">
+  <div class="submit-title">Formulario listo para enviar</div>
+  <p class="submit-desc">
+    Al enviar, el equipo de desarrollo analizará cada respuesta, detectará contradicciones, producirá el GDD completo, la arquitectura técnica, el modelo de datos, el flujo de pantallas, el roadmap por fases y comenzará el desarrollo del juego. <strong>Ninguna pregunta es opcional</strong> — cada respuesta elimina una decisión incorrecta.
+  </p>
+  <button class="btn-submit" id="btnSubmit">
+    <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+      <circle cx="11" cy="11" r="10" stroke="#fff" stroke-width="1.5" opacity=".4"/>
+      <path d="M7 11l3 3 5-6" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    ENVIAR FORMULARIO AL EQUIPO DE DESARROLLO
+  </button>
+  <div class="counter-display" id="counterDisplay">
+    <span id="answeredCount">0</span> de <span>55</span> preguntas respondidas
+  </div>
+
+  <div class="result-panel" id="resultPanel">
+    <div class="result-title">Respuestas generadas — Copiar y pegar al equipo de desarrollo</div>
+    <pre class="result-content" id="resultContent"></pre>
+    <button class="btn-copy" id="btnCopy">Copiar al portapapeles</button>
+  </div>
+</div>
+
+</div><!-- /container -->
+
+<script>
+// ── STATE ──
+const state = {};
+const totalQ = 55;
+
+function updateProgress(){
+  const answered = Object.keys(state).filter(k=>!k.endsWith('-text')&&!k.endsWith('-color')).length;
+  const pct = Math.round((answered/totalQ)*100);
+  document.getElementById('progressFill').style.width = pct+'%';
+  document.getElementById('progressLabel').textContent = answered+' / '+totalQ;
+  document.getElementById('answeredCount').textContent = answered;
+  return answered;
+}
+
+function markAnswered(qNum){
+  const card = document.getElementById('qc'+qNum);
+  if(card) card.classList.add('answered');
+}
+
+// ── CHIPS: single ──
+document.querySelectorAll('.chips[data-type="single"]').forEach(group=>{
+  const q = group.dataset.q;
+  group.querySelectorAll('.chip').forEach(chip=>{
+    chip.addEventListener('click',()=>{
+      group.querySelectorAll('.chip').forEach(c=>c.classList.remove('selected'));
+      chip.classList.add('selected');
+      state[q] = chip.dataset.val;
+      markAnswered(q);
+      updateProgress();
+    });
+  });
+});
+
+// ── CHIPS: multi ──
+document.querySelectorAll('.chips[data-type="multi"]').forEach(group=>{
+  const q = group.dataset.q;
+  state[q] = [];
+  group.querySelectorAll('.chip').forEach(chip=>{
+    chip.addEventListener('click',()=>{
+      const idx = state[q].indexOf(chip.dataset.val);
+      if(idx>-1){
+        state[q].splice(idx,1);
+        chip.classList.remove('selected-multi');
+      } else {
+        state[q].push(chip.dataset.val);
+        chip.classList.add('selected-multi');
+      }
+      if(state[q].length>0) markAnswered(q);
+      else document.getElementById('qc'+q)?.classList.remove('answered');
+      updateProgress();
+    });
+  });
+});
+
+// ── TEXT INPUTS ──
+document.querySelectorAll('[data-q$="-text"]').forEach(el=>{
+  el.addEventListener('input',()=>{
+    state[el.dataset.q] = el.value;
+  });
+});
+
+// ── COLOR PICKERS ──
+document.querySelectorAll('.color-row').forEach(row=>{
+  const q = row.dataset.q;
+  state[q] = [];
+  row.querySelectorAll('.color-opt').forEach(opt=>{
+    opt.addEventListener('click',()=>{
+      opt.classList.toggle('selected');
+      const idx = state[q].indexOf(opt.dataset.val);
+      if(idx>-1) state[q].splice(idx,1);
+      else state[q].push(opt.dataset.val);
+    });
+  });
+});
+
+// ── SLIDERS ──
+document.querySelectorAll('.q-slider').forEach(slider=>{
+  const q = slider.dataset.q;
+  const display = slider.parentElement.querySelector('.slider-val');
+  slider.addEventListener('input',()=>{
+    if(display) display.textContent = slider.value;
+    state[q] = slider.value;
+    markAnswered(q);
+    updateProgress();
+  });
+});
+
+// ── SUBMIT ──
+document.getElementById('btnSubmit').addEventListener('click',()=>{
+  const answered = updateProgress();
+  const lines = ['═══════════════════════════════════════════',
+    'ABYSSAL ECHOES OF THE DEEP',
+    'FORMULARIO GDD — RESPUESTAS DEL CREADOR',
+    'Fecha: '+new Date().toLocaleString('es-ES'),
+    '═══════════════════════════════════════════',''];
+
+  const questions = {
+    '1':'Nombre definitivo del juego',
+    '2':'Tono visual y narrativo',
+    '3':'Nivel de violencia/madurez',
+    '4':'Género del personaje',
+    '5':'Peso de decisiones en historia',
+    '6':'Misterio central del lore',
+    '7':'Idiomas soportados',
+    '8':'Historia de temporadas',
+    '9':'Nombre facción de cazadores',
+    '10':'Referencias visuales',
+    '11':'Paleta de colores dominante',
+    '12':'Representación de personajes en 2D',
+    '13':'Perspectiva del mundo 2D',
+    '14':'Efectos de partículas',
+    '15':'Ilustraciones de bosses',
+    '16':'Cantidad de iconos SVG v1',
+    '17':'Estilo visual del mapa',
+    '18':'Efectos de clima visual',
+    '19':'Tipo de combate principal',
+    '20':'Habilidades en HUD de combate',
+    '21':'Sistema de combos elementales',
+    '22':'Habilidad Ultimate',
+    '23':'Sistema de muerte/derrota',
+    '24':'Fases en bosses',
+    '25':'Clases en primera versión',
+    '26':'Runas/crafting/artefactos en v1',
+    '27':'Nivel máximo o infinito',
+    '28':'GPS Modo Mundo Real',
+    '29':'Nombre habilidad Modo Libre',
+    '30':'Desbloqueo del Modo Libre',
+    '31':'Hora real afecta encuentros',
+    '32':'Función de cámara/AR',
+    '33':'Aparición de Brechas en mapa',
+    '34':'Paquetes de región offline',
+    '35':'Porcentaje de juego offline',
+    '36':'Control de movimiento en Modo Libre',
+    '37':'Jugadores máximos cooperativa',
+    '38':'Multijugador 100% local sin Internet',
+    '39':'Método de unirse a partida local',
+    '40':'Modo PvP',
+    '41':'PWA instalable',
+    '42':'Stack tecnológico',
+    '43':'Guardado en la nube',
+    '44':'Dispositivos prioritarios',
+    '45':'Notificaciones push',
+    '46':'Audio dinámico',
+    '47':'Generación de mazmorras',
+    '48':'Pisos infinitos',
+    '49':'Elementos extra en mazmorras',
+    '50':'Sistema de clanes en v1',
+    '51':'Loot con nombres procedurales',
+    '52':'Sistema de logros',
+    '53':'Temporadas',
+    '54':'Modelo de monetización',
+    '55':'Prioridad absoluta v1'
+  };
+
+  for(let i=1;i<=totalQ;i++){
+    const q = String(i);
+    const resp = state[q];
+    const texto = state[q+'-text']||'';
+    lines.push('── PREGUNTA '+q+': '+questions[q]);
+    if(resp !== undefined){
+      if(Array.isArray(resp)) lines.push('   Selección: '+resp.join(', '));
+      else lines.push('   Selección: '+resp);
+    } else {
+      lines.push('   Selección: [SIN RESPONDER]');
+    }
+    if(texto) lines.push('   Comentario: '+texto);
+    lines.push('');
+  }
+
+  lines.push('═══════════════════════════════════════════');
+  lines.push('Preguntas respondidas: '+answered+' / '+totalQ);
+  lines.push('═══════════════════════════════════════════');
+
+  const txt = lines.join('\n');
+  document.getElementById('resultContent').textContent = txt;
+  document.getElementById('resultPanel').classList.add('show');
+  document.getElementById('resultPanel').scrollIntoView({behavior:'smooth',block:'start'});
+});
+
+// ── COPY ──
+document.getElementById('btnCopy').addEventListener('click',()=>{
+  const text = document.getElementById('resultContent').textContent;
+  navigator.clipboard.writeText(text).then(()=>{
+    const btn = document.getElementById('btnCopy');
+    btn.textContent = 'Copiado correctamente';
+    setTimeout(()=>{btn.textContent='Copiar al portapapeles';},2500);
+  });
+});
+
+updateProgress();
+</script>
+</body>
+</html>
